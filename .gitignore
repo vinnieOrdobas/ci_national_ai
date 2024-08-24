@@ -1,0 +1,51 @@
+# Python specific
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.so
+*.egg
+*.egg-info/
+.eggs/
+
+# Virtual environments
+env/
+venv/
+myenv/
+ENV/
+env.bak/
+venv.bak/
+
+# Django specific
+*.log
+*.pot
+*.pyc
+*.mo
+*.cover
+*.coverage
+*.cache
+*.dat
+*.pyo
+*.sql
+*.sqlite3
+db.sqlite3
+.DS_Store
+
+# Migrations
+**/migrations/*
+
+# Static and media files
+static/
+media/
+
+# VS Code
+.vscode/
+
+# MacOS
+.DS_Store
+
+# PyCharm
+.idea/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
