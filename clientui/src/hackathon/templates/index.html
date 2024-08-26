@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeIE</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/clientui/static/hackathon.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Alert -->
+    <div class="container my-3 fixed-top z-3" gui-show="alerts.has_message()" gui-list="alerts.messages" gui-item="message">
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Error:</strong> <span gui-text="message"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
+
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top z-2">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">HomeIE</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item" gui-click="hackathon.set_tab('info')">
+                        <a class="nav-link" gui-class="hackathon.tab=='info'&&'active'" href="#info">Info</a>
+                    </li>
+                    <li class="nav-item" gui-click="hackathon.set_tab('chat')">
+                        <a class="nav-link" gui-class="hackathon.tab=='chat'&&'active'" href="#chatbotend">Chatbot</a>
+                    </li>
+                    <li class="nav-item" gui-click="hackathon.set_tab('contact')">
+                        <a class="nav-link" gui-class="hackathon.tab=='contact'&&'active'" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- General Info Screen -->
+    <section id="info" class="container my-5" gui-show="hackathon.tab=='info'">
+
+        <!-- Title Page -->
+        <section class="title-page d-flex align-items-center justify-content-center text-center text-white">
+            <div class="overlay w-100 h-100 d-flex flex-column align-items-center justify-content-center">
+                <h1 class="display-4 fw-bold">HomeIE</h1>
+                <p class="lead mb-4">Tired of insecure renting?</p>
+                <p class="lead mb-4">HomeIE AI powered tool helps you work towards a dream of long-term, secure housing</p>
+                <a class="btn btn-primary btn-lg" gui-click="hackathon.set_tab('chat')" href="#chatbotend">Try HomeIE now</a>
+            </div>
+        </section>
+
+        <h2>About HomeIE</h2>
+        <p>HomeIE seeks to help people in Ireland transition from the insecurity of the private rental market into secure long-term housing. Given your personal circumstances, it helps you to understand some options, to progress to a longer-term housing solution, and spells out some steps you may need to take to do so.</p>
+        <p>HomeIE recognises that secure housing could be:
+            <ul>
+                <li>Purpose-built or publicly owned social housing, under a local authority rental scheme (i.e. not a private landlord)</li>
+                <li>A property purchased by you (could be part funded through grant schemes, or co-owned via a Shared Ownership scheme)
+            </ul>
+        </p>
+
+        <h2>FAQ</h2>
+        <p>Question 1: An answer both entertaining and illuminating</p>
+        <p>Question 2: An answer both entertaining and illuminating</p>
+
+        <h2>Disclaimer</h2>
+        <p>
+            HomeIE aims to assist you by using AI to automatically gather information which appears to be relevant to your circumstances. Given that AI is an emerging technology, any information shown cannot be guaranteed to be correct, and the responsibility remains with you, the user, to verify that information with the source provider.
+        </p>
+        <p>
+            Having said that, this is a learning model so if you spor an error please let us know on (contact-us details) and we will make every effort to correct it!
+        </p>
+
+        <h2>Data Protection:</h2>
+        <p>
+            Any data you enter (income, outgoings, work situation, etc) is retained by HomeIE for the duration of the session only. However, this data is submitted to a commercial LLM platform and we actually haven't a clue whether they are going to grab your data and punish you with it forever. Sorry about that.
+        </p>
+    </section>
+
+    <!-- Chatbot UI Screen -->
+    <section id="chatbot" class="container my-5" gui-show="hackathon.tab=='chat'">
+        <h2>Chatbot</h2>
+        <div class="card">
+            <div class="card-body">
+                <div class="chat-window mb-3">
+                    <div gui-list="hackathon.history" gui-item="history">
+                        <div class="chat-message" gui-class="history.from">
+                            <div class="chat-bubble" gui-class="history.from" gui-text="history.text"></div>
+                        </div>
+                    </div>
+
+                    <!-- Typing Indicator -->
+                    <div class="chat-message bot" id="typingIndicator" gui-show="hackathon.loading">
+                        <div class="typing-indicator">
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Type your message here" aria-label="Chat input" gui-val="hackathon.current_prompt"></input>
+                    <button class="btn btn-primary" type="button" gui-click="hackathon.process_prompt()">Send</button>
+                </div>
+            </div>
+        </div>
+        <span id="chatbotend"></span>
+    </section>
+
+    <!-- Contact Info Screen -->
+    <section id="contact" class="container my-5" gui-show="hackathon.tab=='contact'">
+        <h2>Contact Us</h2>
+        <p>We are really interested in your feedback! HomeIE has been developed under hackathon time pressure and we feel this is only the beginning... please tell us what's not working, what would be of value to offer, what have we not yet ocnsidered?</p>
+        <p>We need your help to improve Housing security for people in Ireland. Together we can lobby for change, can share information, can use our personal and social resources to best advantage...</p>
+        <ul class="list-group">
+            <li class="list-group-item">Email: contact@example.com</li>
+            <li class="list-group-item">Phone: +123 456 7890</li>
+        </ul>
+
+        <h4 class="mt-4 mb-2">Who we are</h4>
+        <div class="row">
+
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="profile-card">
+                    <img src="https://ca.slack-edge.com/T0L30B202-U0443TJJAJW-795ce6c4a299-48" alt="Profile Photo 1" class="profile-photo">
+                    <h5>Berat Zorlu</h5>
+                    <div class="role">Chief Recombobulator</div>
+                    <a href="https://www.linkedin.com/in/janedoe" class="linkedin-link" target="_blank">LinkedIn Profile</a>
+                    <p>Almost certainly not a bot.</p>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="profile-card">
+                    <img src="https://ca.slack-edge.com/T0L30B202-U04KZ41SHAR-40dd6d74cdc8-48" alt="Profile Photo 1" class="profile-photo">
+                    <h5>Dierdre McCarthy</h5>
+                    <div class="role">Chief Recombobulator</div>
+                    <a href="https://www.linkedin.com/in/janedoe" class="linkedin-link" target="_blank">LinkedIn Profile</a>
+                    <p>Almost certainly not a bot.</p>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="profile-card">
+                    <img src="https://ca.slack-edge.com/T0L30B202-U02JSK36HGU-2955f9d48336-48" alt="Profile Photo 1" class="profile-photo">
+                    <h5>Sean Meade</h5>
+                    <div class="role">Chief Recombobulator</div>
+                    <a href="https://www.linkedin.com/in/janedoe" class="linkedin-link" target="_blank">LinkedIn Profile</a>
+                    <p>Almost certainly not a bot.</p>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="profile-card">
+                    <img src="https://ca.slack-edge.com/T0L30B202-UQXQCG2TT-a3b077414ed4-48" alt="Profile Photo 1" class="profile-photo">
+                    <h5>Stefan Dworschak</h5>
+                    <div class="role">Chief Recombobulator</div>
+                    <a href="https://www.linkedin.com/in/janedoe" class="linkedin-link" target="_blank">LinkedIn Profile</a>
+                    <p>Almost certainly not a bot.</p>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="profile-card">
+                    <img src="https://ca.slack-edge.com/T0L30B202-U03L9UE1WBF-6970b8e56a3a-48" alt="Profile Photo 1" class="profile-photo">
+                    <h5>Valerie No Loinsigh</h5>
+                    <div class="role">Chief Recombobulator</div>
+                    <a href="https://www.linkedin.com/in/janedoe" class="linkedin-link" target="_blank">LinkedIn Profile</a>
+                    <p>Almost certainly not a bot.</p>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="profile-card">
+                    <img src="https://ca.slack-edge.com/T0L30B202-U01BLE69FGX-ea6bbe8f82a6-48" alt="Profile Photo 1" class="profile-photo">
+                    <h5>Vinnie Ordobas</h5>
+                    <div class="role">Chief Recombobulator</div>
+                    <a href="https://www.linkedin.com/in/janedoe" class="linkedin-link" target="_blank">LinkedIn Profile</a>
+                    <p>Almost certainly not a bot.</p>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="profile-card">
+                    <img src="https://ca.slack-edge.com/T0L30B202-U014FBGKZLN-a5485a1f9862-48" alt="Profile Photo 1" class="profile-photo">
+                    <h5>Ray Gallagher</h5>
+                    <div class="role">Chief Recombobulator</div>
+                    <a href="https://www.linkedin.com/in/janedoe" class="linkedin-link" target="_blank">LinkedIn Profile</a>
+                    <p>Almost certainly not a bot.</p>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/gomyar/turtlegui@v5.20-b/turtlegui.js" crossorigin="anonymous"></script>
+    <script src="/clientui/static/hackathon.js"></script>
+</body>
+</html>
+
