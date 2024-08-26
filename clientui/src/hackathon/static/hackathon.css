@@ -1,0 +1,97 @@
+
+.title-page {
+	height: 100vh; /* Full viewport height */
+	background: url('/clientui/static/images/couple.png') no-repeat center center/cover;
+}
+
+.chat-window {
+    border: 1px solid #dee2e6;
+    border-radius: 0.375rem;
+    padding: 10px;
+    background-color: #f8f9fa;
+}
+.chat-message {
+    margin-bottom: 10px;
+    display: flex;
+}
+.chat-message.bot {
+    justify-content: flex-start;
+}
+.chat-message.user {
+    justify-content: flex-end;
+}
+.chat-bubble {
+    max-width: 70%;
+    padding: 10px;
+    border-radius: 15px;
+    word-wrap: break-word;
+}
+.chat-bubble.bot {
+    background-color: #e9ecef;
+    color: #212529;
+}
+.chat-bubble.user {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Typing Indicator Animation */
+.typing-indicator {
+	display: flex;
+	align-items: center;
+	margin-left: 10px;
+}
+.typing-indicator .dot {
+	width: 8px;
+	height: 8px;
+	margin: 0 2px;
+	background-color: #007bff;
+	border-radius: 50%;
+	opacity: 0;
+	animation: typing 1.5s infinite;
+}
+.typing-indicator .dot:nth-child(1) {
+	animation-delay: 0s;
+}
+.typing-indicator .dot:nth-child(2) {
+	animation-delay: 0.3s;
+}
+.typing-indicator .dot:nth-child(3) {
+	animation-delay: 0.6s;
+}
+@keyframes typing {
+	0%, 100% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+}
+
+/* Contact section */
+.profile-photo {
+    width: 25%;
+    height: auto;
+    border-radius: 50%; /* Makes the photo circular */
+    object-fit: cover;
+}
+.profile-card {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.profile-card h5 {
+    margin-top: 10px;
+}
+.profile-card .role {
+    font-style: italic;
+    color: gray;
+}
+.profile-card p {
+    font-size: 0.9rem;
+    margin: 10px 0;
+}
+.profile-card .linkedin-link {
+    text-decoration: none;
+    color: #0a66c2;
+    font-weight: bold;
+}

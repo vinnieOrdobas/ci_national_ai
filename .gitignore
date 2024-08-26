@@ -35,8 +35,8 @@ db.sqlite3
 **/migrations/*
 
 # Static and media files
-static/
-media/
+# static/
+# media/
 
 # VS Code
 .vscode/
@@ -49,3 +49,6 @@ media/
 
 # Jupyter Notebooks
 .ipynb_checkpoints/
+
+# vim
+*.swp
