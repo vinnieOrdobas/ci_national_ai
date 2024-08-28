@@ -10,7 +10,7 @@
 <body>
 
     <!-- Alert -->
-    <div class="container my-3 fixed-top z-3" gui-show="alerts.has_message()" gui-list="alerts.messages" gui-item="message">
+    <div class="container-fluid my-3 fixed-top z-3" gui-show="alerts.has_message()" gui-list="alerts.messages" gui-item="message">
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
             <strong>Error:</strong> <span gui-text="message"></span>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -21,7 +21,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top z-2">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">HomeIE</a>
+            <a class="navbar-brand" href="#info"><img src="/clientui/static/images/home_ie_icon_sm.png" alt="HomeIE logo" />HomeIE</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -42,7 +42,7 @@
     </nav>
 
     <!-- General Info Screen -->
-    <section id="info" class="container my-5" gui-show="hackathon.tab=='info'">
+    <section id="info" class="container-fluid my-5" gui-show="hackathon.tab=='info'">
 
         <!-- Title Page -->
         <section class="title-page d-flex align-items-center justify-content-center text-center text-white">
@@ -53,15 +53,29 @@
                 <a class="btn btn-primary btn-lg" gui-click="hackathon.set_tab('chat')" href="#chatbotend">Try HomeIE now</a>
             </div>
         </section>
+    </section>
 
-        <h2>About HomeIE</h2>
-        <p>HomeIE seeks to help people in Ireland transition from the insecurity of the private rental market into secure long-term housing. Given your personal circumstances, it helps you to understand some options, to progress to a longer-term housing solution, and spells out some steps you may need to take to do so.</p>
-        <p>HomeIE recognises that secure housing could be:
-            <ul>
-                <li>Purpose-built or publicly owned social housing, under a local authority rental scheme (i.e. not a private landlord)</li>
-                <li>A property purchased by you (could be part funded through grant schemes, or co-owned via a Shared Ownership scheme)
-            </ul>
-        </p>
+    <section id="about" class="container my-5" gui-show="hackathon.tab=='info'">
+
+        <h2 class="mb-3">About HomeIE</h2>
+        
+        <div class="row gx-5">
+            <div class="col-sm-12 col-md-6">
+                <p>HomeIE seeks to help people in Ireland transition from the insecurity of the private rental market into secure long-term housing. Given your personal circumstances, it helps you to understand some options, to progress to a longer-term housing solution, and spells out some steps you may need to take to do so.</p>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <p>HomeIE recognises that secure housing could be:
+                    <ul>
+                        <li>Purpose-built or publicly owned social housing, under a local authority rental scheme (i.e. not a private landlord)</li>
+                        <li>A property purchased by you (could be part funded through grant schemes, or co-owned via a Shared Ownership scheme)
+                    </ul>
+                </p>
+            </div>
+       </div>
+
+    </section>
+
+    <section id="faq" class="container my-5" gui-show="hackathon.tab=='info'">
 
         <h2>FAQ</h2>
         <p>Question 1: An answer both entertaining and illuminating</p>
@@ -74,6 +88,10 @@
         <p>
             Having said that, this is a learning model so if you spor an error please let us know on (contact-us details) and we will make every effort to correct it!
         </p>
+
+    </section>
+
+    <section id="data-protection" class="container my-5" gui-show="hackathon.tab=='info'">
 
         <h2>Data Protection:</h2>
         <p>
