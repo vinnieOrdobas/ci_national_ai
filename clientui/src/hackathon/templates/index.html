@@ -20,44 +20,47 @@
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top z-2">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#info"><img src="/clientui/static/images/home_ie_icon_sm.png" alt="HomeIE logo" />HomeIE</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item" gui-click="hackathon.set_tab('info')">
-                        <a class="nav-link" gui-class="hackathon.tab=='info'&&'active'" href="#info">Info</a>
-                    </li>
-                    <li class="nav-item" gui-click="hackathon.set_tab('chat')">
-                        <a class="nav-link" gui-class="hackathon.tab=='chat'&&'active'" href="#chatbotend">Chatbot</a>
-                    </li>
-                    <li class="nav-item" gui-click="hackathon.set_tab('contact')">
-                        <a class="nav-link" gui-class="hackathon.tab=='contact'&&'active'" href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
+        <a class="navbar-brand" role="button" gui-click="hackathon.set_tab('info')"><img src="/clientui/static/images/home_ie_icon_sm.png" alt="HomeIE logo" />HomeIE</a>
+        <button class="navbar-toggler mx-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item px-3" gui-click="hackathon.set_tab('info')">
+                    <a class="nav-link" gui-class="hackathon.tab=='info'&&'active'" href="#info">Info</a>
+                </li>
+                <li class="nav-item px-3" gui-click="hackathon.set_tab('chat')">
+                    <a class="nav-link" gui-class="hackathon.tab=='chat'&&'active'" href="#chatbotend">Chatbot</a>
+                </li>
+                <li class="nav-item px-3" gui-click="hackathon.set_tab('contact')">
+                    <a class="nav-link" gui-class="hackathon.tab=='contact'&&'active'" href="#contact">Contact</a>
+                </li>
+            </ul>
         </div>
     </nav>
 
     <!-- General Info Screen -->
-    <section id="info" class="container-fluid my-5" gui-show="hackathon.tab=='info'">
+    <div class="container-fluid my-5" gui-show="hackathon.tab=='info'">
+        <section id="info" class="row">
 
-        <!-- Title Page -->
-        <section class="title-page d-flex align-items-center justify-content-center text-center text-white">
-            <div class="overlay w-100 h-100 d-flex flex-column align-items-center justify-content-center">
-                <h1 class="display-4 fw-bold">HomeIE</h1>
-                <p class="lead mb-4">Tired of insecure renting?</p>
-                <p class="lead mb-4">HomeIE AI powered tool helps you work towards a dream of long-term, secure housing</p>
-                <a class="btn btn-primary btn-lg" gui-click="hackathon.set_tab('chat')" href="#chatbotend">Try HomeIE now</a>
-            </div>
+            <!-- Title Page -->
+            <section class="title-page d-flex align-items-center justify-content-center text-center text-white">
+                <div class="overlay w-100 h-100 d-flex flex-column align-items-center justify-content-center">
+                    <h1 class="display-4 fw-bold">HomeIE</h1>
+                    <p class="lead mb-4">Tired of insecure renting?</p>
+                    <p class="lead mb-4">HomeIE AI powered tool helps you work towards a dream of long-term, secure housing</p>
+                    <a class="btn btn-primary btn-lg" gui-click="hackathon.set_tab('chat')" href="#chatbotend">Try HomeIE now</a>
+                </div>
+            </section>
         </section>
-    </section>
-
-    <section id="about" class="container my-5" gui-show="hackathon.tab=='info'">
-
-        <h2 class="mb-3">About HomeIE</h2>
+    </div>
+    
+    <section id="about" class="container my-5"  gui-show="hackathon.tab=='info'">
+        <div class="row">
+            <div class="col">
+                <h2 class="mb-3">About HomeIE</h2>
+            </div>
+        </div>
         
         <div class="row gx-5">
             <div class="col-sm-12 col-md-6">
@@ -76,31 +79,53 @@
     </section>
 
     <section id="faq" class="container my-5" gui-show="hackathon.tab=='info'">
+        <div class="row">
+            <div class="col">
+                <h2>FAQ</h2>
+            </div>
+        </div>
 
-        <h2>FAQ</h2>
-        <p>Question 1: An answer both entertaining and illuminating</p>
-        <p>Question 2: An answer both entertaining and illuminating</p>
+        <div> 
+            <p>Question 1: An answer both entertaining and illuminating</p>
+            <p>Question 2: An answer both entertaining and illuminating</p>
+        </div>
+     </section>
 
-        <h2>Disclaimer</h2>
-        <p>
-            HomeIE aims to assist you by using AI to automatically gather information which appears to be relevant to your circumstances. Given that AI is an emerging technology, any information shown cannot be guaranteed to be correct, and the responsibility remains with you, the user, to verify that information with the source provider.
-        </p>
-        <p>
-            Having said that, this is a learning model so if you spor an error please let us know on (contact-us details) and we will make every effort to correct it!
-        </p>
+     <section id="disclaimer" class="container my-5" gui-show="hackathon.tab=='info'">
+        <div class="row my-5">
+            <div class="col-sm-12 col-md-6">
+                <h2>Disclaimer</h2>
+                <p>
+                    HomeIE aims to assist you by using AI to automatically gather information which appears to be relevant to your circumstances. Given that AI is an emerging technology, any information shown cannot be guaranteed to be correct, and the responsibility remains with you, the user, to verify that information with the source provider.
+                </p>
+                <p>
+                    Having said that, this is a learning model so if you spor an error please let us know on (contact-us details) and we will make every effort to correct it!
+                </p>
+            </div>
 
+            <div class="col-sm-12 col-md-6 disclaimer-image">
+            </div>
+        </div>
     </section>
 
     <section id="data-protection" class="container my-5" gui-show="hackathon.tab=='info'">
 
-        <h2>Data Protection:</h2>
-        <p>
-            Any data you enter (income, outgoings, work situation, etc) is retained by HomeIE for the duration of the session only. However, this data is submitted to a commercial LLM platform and we actually haven't a clue whether they are going to grab your data and punish you with it forever. Sorry about that.
-        </p>
-    </section>
+        <div class="row my-5">
+            <div class="col-sm-12 col-md-6 data-protection-image">
+            </div>
 
+            <div class="col-sm-12 col-md-6">
+                <h2>Data Protection</h2>
+                <p>
+                    Any data you enter (income, outgoings, work situation, etc) is retained by HomeIE for the duration of the session only. However, this data is submitted to a commercial LLM platform and we actually haven't a clue whether they are going to grab your data and punish you with it forever. Sorry about that.
+                </p>
+            </div>
+        </div>
+
+    </section>
     <!-- Chatbot UI Screen -->
-    <section id="chatbot" class="container my-5" gui-show="hackathon.tab=='chat'">
+    
+    <div id="chatbot" class="container my-5" gui-show="hackathon.tab=='chat'">
         <h2>Chatbot</h2>
         <div class="card">
             <div class="card-body">
@@ -127,10 +152,10 @@
             </div>
         </div>
         <span id="chatbotend"></span>
-    </section>
+    </div>
 
     <!-- Contact Info Screen -->
-    <section id="contact" class="container my-5" gui-show="hackathon.tab=='contact'">
+    <div id="contact" class="container my-5" gui-show="hackathon.tab=='contact'">
         <h2>Contact Us</h2>
         <p>We are really interested in your feedback! HomeIE has been developed under hackathon time pressure and we feel this is only the beginning... please tell us what's not working, what would be of value to offer, what have we not yet ocnsidered?</p>
         <p>We need your help to improve Housing security for people in Ireland. Together we can lobby for change, can share information, can use our personal and social resources to best advantage...</p>
@@ -214,7 +239,7 @@
 
 
         </div>
-    </section>
+    </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
