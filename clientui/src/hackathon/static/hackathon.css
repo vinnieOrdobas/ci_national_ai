@@ -1,7 +1,39 @@
+:root {
+    --primary-blue: #207cc6;
+    --secondary-blue: #4fc6e0;
+    --primary-green: #21aa45;
+    --secondary-green: #8fd123;
+    --primary-purple: #afb7e3;
+}
+
+* {
+    font-family: Roboto, sans-serif;
+    line-height: 1.5 !important;
+}
+
+.container-fluid {
+    max-width: none;
+    width: 100vw;
+    padding: 0;
+}
+
+.container#chatbot, .container#contact {
+    margin-top: 80px!important;
+}
 
 .title-page {
 	height: 100vh; /* Full viewport height */
-	background: url('/clientui/static/images/couple.png') no-repeat center center/cover;
+	background: url('/clientui/static/images/hero_image.png') no-repeat center center/cover;
+}
+
+.disclaimer-image {
+    background: url('/clientui/static/images/undraw_disclaimer.svg') no-repeat center center/contain;
+    max-height: 200px;
+}
+
+.data-protection-image {
+    background: url('/clientui/static/images/undraw_data_protection.svg') no-repeat center center/contain;
+    max-height: 200px
 }
 
 .chat-window {
@@ -95,3 +127,8 @@
     color: #0a66c2;
     font-weight: bold;
 }
+
+.navbar-brand {
+    color: var(--primary-blue);
+}
+
