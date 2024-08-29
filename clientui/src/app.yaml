@@ -3,9 +3,9 @@ runtime: python39
 entrypoint: gunicorn -b :$PORT server:app
 
 env_variables:
-  PROJECT_ID: "marine-copilot-433717-q0"
-  LOCATION: "europe-west3"
-  ENDPOINT_ID: "6442984207139471360"
+  PROJECT_ID: "code-institute-433215"
+  LOCATION: "us-central1"
+  ENDPOINT_ID: "1150104555816484864"
 
 
 handlers:
