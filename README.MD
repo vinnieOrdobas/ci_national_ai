@@ -557,14 +557,6 @@ In addition to the above, we manually tested all of the project's features to en
 1. **Problem:** [Describe the specific issue encountered]
    - **Solution:** [Explain how the issue was resolved]
 
-### Lighthouse Testing
-
-In alignment with the National AI Strategy, we aimed to ensure that our web application was fully accessible. To achieve this, we utilized the Lighthouse testing tool available through Developer Tools.
-
-Below is a screengrab of the initial Lighthouse test results, which we believe demonstrate adequate performance across key metrics (Performance, Accessibility, Best Practices, SEO):
-
-![Kanban Board- MOSCOW](./assets/kanban_board.png)
-
 ### Deployment Process
 
 The site was successfully deployed to GitHub Pages. The following steps outline the deployment process:
