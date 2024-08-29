@@ -108,6 +108,7 @@ class HackathonUI {
                 body: JSON.stringify({
                     "prompt": this.current_prompt,
                     "history": this.history
+                    "user_info": this.user_info,
                 })
             });
             var data = await response.json();

@@ -31,11 +31,14 @@
                 <li class="nav-item px-3" gui-click="hackathon.set_tab('info')">
                     <a class="nav-link" gui-class="hackathon.tab=='info'&&'active'" href="#info">Home</a>
                 </li>
-                <li class="nav-item px-3" gui-click="hackathon.set_tab('chat')">
-                    <a class="nav-link" gui-class="hackathon.tab=='chat'&&'active'" href="#chatbotend">Chatbot</a>
+                <li class="nav-item px-3" gui-click="scroll_to('team')">
+                    <a class="nav-link" gui-class="hackathon.tab=='team'&&'active'" href="#team">Team</a>
                 </li>
-                <li class="nav-item px-3" gui-click="hackathon.set_tab('contact')">
+                <li class="nav-item px-3" gui-click="scroll_to('contact')">
                     <a class="nav-link" gui-class="hackathon.tab=='contact'&&'active'" href="#contact">Contact</a>
+                </li>
+                <li class="nav-item px-3" gui-click="hackathon.set_tab('chat')">
+                    <a role="button" class="btn btn-primary" gui-class="hackathon.tab=='chat'&&'active'" href="#chatbotend">Try Homie Now!</a>
                 </li>
             </ul>
         </div>
@@ -183,12 +186,12 @@
 
                         <div class="col">
                             <label for="location">Location</label>
-                            <input type="text" id="location" class="form-control" placeholder="e.g. Dublin" gui-val="hackathon.user_info.name">
+                            <input type="text" id="location" class="form-control" placeholder="e.g. Dublin" gui-val="hackathon.user_info.location">
                         </div>
 
                         <div class="col">
                             <label for="income">Income &euro; (p/a)</label>
-                            <input type="number" id="income" class="form-control" placeholder="21000" gui-val="hackathon.user_info.name">
+                            <input type="number" id="income" class="form-control" placeholder="21000" gui-val="hackathon.user_info.income">
                         </div>
                     </div>
                     <div class="row my-2">
@@ -196,19 +199,19 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <input type="text" id="tax-2023" class="form-control" gui-val="hackathon.user_info.name" placeholder="2023">
+                            <input type="text" id="tax-2023" class="form-control" gui-val="hackathon.user_info.tax_2023" placeholder="2023">
                         </div>
 
                         <div class="col">
-                            <input type="text" id="tax-2022" class="form-control" gui-val="hackathon.user_info.name" placeholder="2022">
+                            <input type="text" id="tax-2022" class="form-control" gui-val="hackathon.user_info.tax_2022" placeholder="2022">
                         </div>
 
                         <div class="col">
-                            <input type="number" id="tax-2021" class="form-control" gui-val="hackathon.user_info.name" placeholder="2021">
+                            <input type="number" id="tax-2021" class="form-control" gui-val="hackathon.user_info.tax_2021" placeholder="2021">
                         </div>
 
                         <div class="col">
-                            <input type="number" id="tax-2020" class="form-control" gui-val="hackathon.user_info.name" placeholder="2020">
+                            <input type="number" id="tax-2020" class="form-control" gui-val="hackathon.user_info.tax_2020" placeholder="2020">
                         </div>
                    </div>
                 </form>
@@ -292,7 +295,7 @@
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Disclaimer</h5>
+                    <h5 class="modal-title">Disclaimer</h4>
                     <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close" gui-click="hackathon.toggle_visible('disclaimer')">
                         <i class="bi bi-x" style="font-size: 1.2rem;"></i>
                     </button>
@@ -314,86 +317,71 @@
         </div>
     </div>
 
-    <!-- Contact Info Screen -->
-    <div id="contact" class="container my-5" gui-show="hackathon.tab=='contact'">
-        <h2>Contact Us</h2>
-        <p>We are really interested in your feedback! HomeIE has been developed under hackathon time pressure and we feel this is only the beginning... please tell us what's not working, what would be of value to offer, what have we not yet ocnsidered?</p>
-        <p>We need your help to improve Housing security for people in Ireland. Together we can lobby for change, can share information, can use our personal and social resources to best advantage...</p>
-        <ul class="list-group">
-            <li class="list-group-item">Email: contact@example.com</li>
-            <li class="list-group-item">Phone: +123 456 7890</li>
-        </ul>
+   
+    <!-- Team Info Screen -->
+    <div id="team" class="container-fluid p-5" gui-show="hackathon.tab=='info'">
+        <div class="row mb-4">
+            <div class="col">
+                <h2 class="text-center"><a name="team">Meet The Team</a></h2>
+            </div>
+        </div>
 
-        <h4 class="mt-4 mb-2">Who we are</h4>
         <div class="row">
 
-            <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
                 <div class="profile-card">
-                    <img src="https://ca.slack-edge.com/T0L30B202-U0443TJJAJW-795ce6c4a299-48" alt="Profile Photo 1" class="profile-photo">
-                    <h5>Berat Zorlu</h5>
+                    <img src="https://ca.slack-edge.com/T0L30B202-U0443TJJAJW-795ce6c4a299-512" alt="Profile Photo 1" class="profile-photo">
+                    <h5 class="m-0">Berat Zorlu<a href="https://www.linkedin.com/in/janedoe" class="linkedin-link" target="_blank"><i class="bi bi-linkedin"></i></a></h5>
                     <div class="role">Chief Recombobulator</div>
-                    <a href="https://www.linkedin.com/in/janedoe" class="linkedin-link" target="_blank">LinkedIn Profile</a>
-                    <p>Almost certainly not a bot.</p>
                 </div>
             </div>
 
-            <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
                 <div class="profile-card">
-                    <img src="https://ca.slack-edge.com/T0L30B202-U04KZ41SHAR-40dd6d74cdc8-48" alt="Profile Photo 1" class="profile-photo">
-                    <h5>Dierdre McCarthy</h5>
+                    <img src="https://ca.slack-edge.com/T0L30B202-U04KZ41SHAR-40dd6d74cdc8-512" alt="Profile Photo 1" class="profile-photo">
+                    <h5 class="m-0">Dierdre McCarthy<a href="https://www.linkedin.com/in/janedoe" class="linkedin-link" target="_blank"><i class="bi bi-linkedin"></i></a></h5>
                     <div class="role">Chief Recombobulator</div>
-                    <a href="https://www.linkedin.com/in/janedoe" class="linkedin-link" target="_blank">LinkedIn Profile</a>
-                    <p>Almost certainly not a bot.</p>
+
                 </div>
             </div>
 
-            <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
                 <div class="profile-card">
-                    <img src="https://ca.slack-edge.com/T0L30B202-U02JSK36HGU-2955f9d48336-48" alt="Profile Photo 1" class="profile-photo">
-                    <h5>Sean Meade</h5>
+                    <img src="https://ca.slack-edge.com/T0L30B202-U02JSK36HGU-2955f9d48336-512" alt="Profile Photo 1" class="profile-photo">
+                    <h5 class="m-0">Sean Meade<a href="https://www.linkedin.com/in/janedoe" class="linkedin-link" target="_blank"><i class="bi bi-linkedin"></i></a></h5>
                     <div class="role">Chief Recombobulator</div>
-                    <a href="https://www.linkedin.com/in/janedoe" class="linkedin-link" target="_blank">LinkedIn Profile</a>
-                    <p>Almost certainly not a bot.</p>
                 </div>
             </div>
 
-            <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
                 <div class="profile-card">
-                    <img src="https://ca.slack-edge.com/T0L30B202-UQXQCG2TT-a3b077414ed4-48" alt="Profile Photo 1" class="profile-photo">
-                    <h5>Stefan Dworschak</h5>
+                    <img src="https://ca.slack-edge.com/T0L30B202-UQXQCG2TT-a3b077414ed4-512" alt="Profile Photo 1" class="profile-photo">
+                    <h5 class="m-0">Stefan Dworschak<a href="https://www.linkedin.com/in/janedoe" class="linkedin-link" target="_blank"><i class="bi bi-linkedin"></i></a></h5>
                     <div class="role">Chief Recombobulator</div>
-                    <a href="https://www.linkedin.com/in/janedoe" class="linkedin-link" target="_blank">LinkedIn Profile</a>
-                    <p>Almost certainly not a bot.</p>
                 </div>
             </div>
 
-            <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
                 <div class="profile-card">
-                    <img src="https://ca.slack-edge.com/T0L30B202-U03L9UE1WBF-6970b8e56a3a-48" alt="Profile Photo 1" class="profile-photo">
-                    <h5>Valerie No Loinsigh</h5>
+                    <img src="https://ca.slack-edge.com/T0L30B202-U03L9UE1WBF-6970b8e56a3a-512" alt="Profile Photo 1" class="profile-photo">
+                    <h5 class="m-0">Valerie No Loinsigh<a href="https://www.linkedin.com/in/janedoe" class="linkedin-link" target="_blank"><i class="bi bi-linkedin"></i></a></h5>
                     <div class="role">Chief Recombobulator</div>
-                    <a href="https://www.linkedin.com/in/janedoe" class="linkedin-link" target="_blank">LinkedIn Profile</a>
-                    <p>Almost certainly not a bot.</p>
                 </div>
             </div>
 
-            <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
                 <div class="profile-card">
-                    <img src="https://ca.slack-edge.com/T0L30B202-U01BLE69FGX-ea6bbe8f82a6-48" alt="Profile Photo 1" class="profile-photo">
-                    <h5>Vinnie Ordobas</h5>
+                    <img src="https://ca.slack-edge.com/T0L30B202-U01BLE69FGX-ea6bbe8f82a6-512" alt="Profile Photo 1" class="profile-photo">
+                    <h5 class="m-0">Vinnie Ordobasi<a href="https://www.linkedin.com/in/janedoe" class="linkedin-link" target="_blank"><i class="bi bi-linkedin"></i></a></h5>
                     <div class="role">Chief Recombobulator</div>
-                    <a href="https://www.linkedin.com/in/janedoe" class="linkedin-link" target="_blank">LinkedIn Profile</a>
-                    <p>Almost certainly not a bot.</p>
                 </div>
             </div>
 
-            <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
                 <div class="profile-card">
-                    <img src="https://ca.slack-edge.com/T0L30B202-U014FBGKZLN-a5485a1f9862-48" alt="Profile Photo 1" class="profile-photo">
-                    <h5>Ray Gallagher</h5>
+                    <img src="https://ca.slack-edge.com/T0L30B202-U014FBGKZLN-a5485a1f9862-512" alt="Profile Photo 1" class="profile-photo">
+                    <h5 class="m-0">Ray Gallagheri<a href="https://www.linkedin.com/in/janedoe" class="linkedin-link" target="_blank"><i class="bi bi-linkedin"></i></a></h5>
                     <div class="role">Chief Recombobulator</div>
-                    <a href="https://www.linkedin.com/in/janedoe" class="linkedin-link" target="_blank">LinkedIn Profile</a>
-                    <p>Almost certainly not a bot.</p>
                 </div>
             </div>
 
@@ -401,7 +389,50 @@
         </div>
     </div>
 
+   <!-- Contact Info Screen -->
+    <div id="contact" class="container p-3 my-5 text-center" gui-show="hackathon.tab=='info'">
+        <div class="row">
+            <div class="col">
+                <h2><a name="contact">Contact Us</a></h2>
+                <p>We are really interested in your feedback! HomeIE has been developed under hackathon time pressure and we feel this is only the beginning... please tell us what's not working, what would be of value to offer, what have we not yet ocnsidered?</p>
+                <p>We need your help to improve Housing security for people in Ireland. Together we can lobby for change, can share information, can use our personal and social resources to best advantage...</p>
+            </div>
+        </div>
+        <div class="row w-50 mx-auto mt-3">
+            <div class="col">
+                <form>
+                    <div class="form-group mb-3">
+                        <label for="contact_name">Name</label>
+                        <input type="text" name="contact_name" id="contact_name" class="form-control" />
+                    </div>
 
+                    <div class="form-group mb-3">
+                        <label for="contact_email">Email</label>
+                        <input type="text" name="contact_email" id="contact_email" class="form-control" />
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="contact_message">Message</label>
+                        <textarea name="contact_message" id="contact_message" class="form-control"></textarea>
+                    </div>
+                        
+                    <div class="form-group mb-3">
+                        <button class="btn btn-primary">Send</button>
+                    </div>
+                
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer" class="container-fluid text-center p-3" gui-show="hackathon.tab=='info'">
+        <div class="row">
+            <div class="col">
+                &copy; 2024 - HomeIE &vert; All Rights Reserved
+            </div>
+        </div>
+    </footer>
+ 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/gomyar/turtlegui@v5.20-b/turtlegui.js" crossorigin="anonymous"></script>

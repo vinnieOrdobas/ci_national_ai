@@ -111,7 +111,7 @@
 
 /* Contact section */
 .profile-photo {
-    width: 25%;
+    width: 35%;
     height: auto;
     border-radius: 50%; /* Makes the photo circular */
     object-fit: cover;
@@ -178,4 +178,18 @@
     color: black;
     background-color: white;
     font-weight: bold;
+}
+
+#team {
+    color: white;
+    background-color: var(--bs-dark);
+}
+
+.linkedin-link {
+    margin-left: 5px;
+}
+
+#footer {
+    height: 50px;
+    background-color: var(--primary-purple);
 }
