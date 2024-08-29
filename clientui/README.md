@@ -40,6 +40,8 @@ The application will be available at http://127.0.0.1:5000.
 
 ## Deploying to Google App Engine
 
+Note: Instructions on installing gcloud are here: https://cloud.google.com/sdk/docs/install-sdk
+
 1. Ensure you are in the project root directory:
 
    cd ci_national_ai
