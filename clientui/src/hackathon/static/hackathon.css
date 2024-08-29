@@ -13,7 +13,7 @@
 
 .container-fluid {
     max-width: none;
-    width: 100vw;
+    width: 100%;
     padding: 0;
 }
 
@@ -22,8 +22,14 @@
 }
 
 .title-page {
-	height: 100vh; /* Full viewport height */
+	height: 600px; /* Full viewport height */
 	background: url('/clientui/static/images/hero_image.png') no-repeat center center/cover;
+    background-color: var(--primary-purple);
+}
+
+.title-page .title-text {
+    max-width: 350px;
+    margin-left: 150px;
 }
 
 .disclaimer-image {
@@ -41,6 +47,9 @@
     border-radius: 0.375rem;
     padding: 10px;
     background-color: #f8f9fa;
+    height: 500px;
+    max-height: 500px;
+    overflow-y: scroll;
 }
 .chat-message {
     margin-bottom: 10px;
@@ -132,3 +141,17 @@
     color: var(--primary-blue);
 }
 
+
+.user_info_accordion {
+    max-height: 0;
+    display: none;
+}
+
+.is_visible {
+    display: block;
+}
+
+.user_info.is_visible {
+    max-height: 500px;
+    transition: max-height 0.25s ease-in;
+}
