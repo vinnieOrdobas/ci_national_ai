@@ -1,17 +1,14 @@
-python3 -m venv <env_name>
-source <env_name>/bin/activate
 
-git clone git@github.com:vinnieOrdobas/ci_national_ai.git
+# HomeIE - the AI Assistant that helps you to find a secure home - AI here for good!
 
-[CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
-
-# HomeIE - the AI Assistant that helps you to find a secure home
+![Responsive Image](./assets/240828%20AmIResponsive.png)
+Next steps - insert hyperlink to bottom of README
 
 ## *Introduction*
 
 ### **-What the project hopes to accomplish.**
 
-The project aims to identify a problem affecting modern society and to provide an AI-driven solution through a website designed to address that problem.
+The project aims to identify a problem affecting modern society and to provide an AI-driven solution through a website designed to address that problem. Evidencing that AI is here for good.
 
 **Problem Identification**  
 The pain point we have identified is the lack of easily accessible, comprehensive information and assistance available online for people looking to securely purchase a home. The solutions are often buried deep within dense documents, hidden in hyperlinks in small print on webpage footers. Moreover, the information is scattered across unconnected websites, creating a tedious obstacle course for users.
@@ -27,25 +24,303 @@ From the outset, we focused on ensuring the effectiveness, innovation, and pract
 
 Creativity and originality were central to our approach, and we implemented a rigorous technical process. By setting up a host coding page, establishing a review mechanism, and using wireframes and system architecture diagrams, we ensured that our project was technically sound and well-coordinated.
 
-**Process for setting up a collaborative environment on Github (Step-by-step process):**
+## **Process for Setting Up a Collaborative Environment on GitHub (Step-by-Step Process)**
 
-- Main branch
-- Push and pull requests
-- From scratch (VSCode)
-- Creating a fresh branch on each commit and push (discuss importance of this)
+### 1. **Setting Up the Repository**
 
-**Description of our team, skillset and main contribution to the project:** *(Ask each member to add their own description)*
+- **Create the Repository:**
+  - One team member created a new repository on GitHub. This repository will serve as the central hub for all project files and version control.
+  - Named our repository appropriately (e.g., `ci_national_ai`) and initialized it with a `README.md` file.
+  - Set our repository to "Public" but could be "Private" based on your team's needs.
 
-- **Deirdre** - Scrum Master, spearheaded the Kanban Board and Agile approach. Arranged and chaired most huddles, delegated tasks and performed testing on the model.
-- **Sean** - Gathering relevant datasets, scraping data from relevant websites, and trained pipeline for custom jobs.
-- **Vinnie** - Trained pipeline for custom job, performed supervised fine-tuning of the model.
+- **Clone the Repository:**
+  - Each team member cloned the repository to their local machine using the following command:
+    ```bash
+    git clone git@github.com:<username>/<repository-name>.git
+    cd <repository-name>
+    ```
+  - This created a local copy of the repository on each member’s machine.
+
+### 2. **Main Branch Management**
+
+- **Main Branch as the Production Branch:**
+  - The `main` branch should be considered the production-ready branch. This means that any code merged into `main` should be thoroughly tested and fully functional.
+  - Protect the `main` branch by setting up branch protection rules in the GitHub settings. This can include requiring pull request reviews and passing status checks before any code can be merged.
+
+### 3. **Branching Strategy**
+
+- **Create a Branch for Each Feature or Fix:**
+  - Team members created a new branch for each feature, bug fix, or task worked on. This isolates changes and prevents conflicts with the main branch.
+  - Naming convention for branches could be `feature/description`, `fix/description`, or `hotfix/description`. 
+  For example:
+    ```bash
+    git checkout -b feature/chatbot-integration
+    ```
+  - This command creates a new branch and switches to it.
+
+- **Importance of Creating Fresh Branches:**
+  - Always create a fresh branch from `main` before starting new work. This ensures that your new branch includes the latest updates from the `main` branch.
+  - After completing work on a branch, push the branch to GitHub and create a pull request for review.
+
+### 4. **Push and Pull Requests**
+
+- **Committing Changes:**
+  - Regularly commit your changes with clear, descriptive messages. This helps maintain a clear history of what changes were made and why.
+    ```bash
+    git add .
+    git commit -m "Added chatbot integration to the landing page"
+    ```
+
+- **Pushing Changes to GitHub:**
+  - Push your branch to the GitHub repository using the following command:
+    ```bash
+    git push origin <branch-name>
+    ```
+
+- **Creating a Pull Request (PR):**
+  - Once your feature or fix is complete, open a pull request from your branch to `main` on GitHub. This allows other team members to review your changes before they are merged.
+  - Ensure that your PR includes:
+    - A clear title and description of what the PR addresses.
+    - Any relevant issue numbers or references.
+    - Screenshots or testing results if applicable.
+
+- **Review and Merge:**
+  - Other team members should review the pull request, leave comments, and request changes if necessary.
+  - Once approved, the branch can be merged into `main`. It's important to delete the branch after merging to keep the repository clean.
+
+**Description of our team, skillset and main contribution to the project:** 
+
+- **Vinnie** - Led AI learning, team coaching, Trained pipeline for custom job, performed supervised fine-tuning of the model.
+- **Sean** -  Led team from outset. Developed creative ETL processes including harvesting directly from websites, trained pipeline for custom jobs. Cohesiveness.
+- **Valerie** - Led Idea generation, Product Manager, Research & Dataset Identification, developed AI data tools for data cleansing & preparation, created README, shepherded the team.
+- **Ray** - Led in practical AI integration into a solution, Built MVP & connected front-end and back-ends
+- **Stefan** - Led front-end design for final solution
 - **Berat** - Trained pipeline for custom job.
-- **Valerie** - Gathered datasets, created README.
-- **Ray** - CI Employee, offers his expertise in resolving logic issues and developed the client UI/deployed the project.
-- **Stefan** - CI Employee, assisted with building the pipeline and front-end design.
+**Deirdre** - Scrum Master, Kanban Board, User Stories/VOC, Product Management/testing
+
+## **Technical Details**
+
+### Technology Stack
+
+- **Framework:** Flask was chosen as the primary web framework due to its simplicity and flexibility, which allowed rapid development of the web application. Flask’s lightweight nature made it ideal for integrating with AI models and deploying on cloud platforms like GCP.
+- **Frontend:** HTML, CSS, JavaScript, and Bootstrap were used to create the user interface. Bootstrap was specifically applied to enhance visual styling and ensure responsiveness across various devices.
+- **Backend:** Python was the core programming language used in the backend, enabling the integration of AI models and handling server-side logic.
+- **APIs:** We utilized APIs provided by OpenAI for model access and interactions. The integration of Gemini and ChatGPT APIs allowed us to leverage advanced language models for generating housing advice based on user input.
+- **Cloud Platform:** Google Cloud Platform (GCP) was used for hosting and deploying the application. GCP’s Vertex AI service was instrumental in training and fine-tuning the AI models, taking advantage of GPU resources for efficient processing.
+- **Collaboration:** GitHub was employed for version control and collaborative coding. Multiple team members contributed to the repository, utilizing branches and pull requests to manage code changes.
+
+### Significant Libraries Used
+
+- **Flask:** For developing the web application and handling HTTP requests.
+- **Bootstrap:** Used on the frontend to ensure a responsive and visually appealing design.
+- **TensorFlow/PyTorch:** For any AI model training or deployment tasks (if applicable).
+- **Requests:** To handle API requests to and from the OpenAI models.
+- **Pandas/Numpy:** For data manipulation and preparation tasks, particularly in preparing datasets for AI model training.
+- **Jinja2:** Used within Flask to render dynamic HTML templates.
+- **Gunicorn:** As a WSGI server to deploy the Flask application on GCP.
+- **Beautiful Soup 4:** Utilized for web scraping tasks, specifically to extract data from relevant websites.
+
+### Additional Notes
+
+- **Jupyter Notebooks:** While not a dependency, Jupyter Notebooks were used to transparently document how datasets were created, allowing for better understanding and reproducibility.
+- **Python Script for Web Scraping:** A Python script was used for scraping one of the websites, employing Beautiful Soup 4. This script is available upon request and could be added to the repository for completeness if needed.
+
+### Environment Setup and Dependencies
+To set up the project locally, follow these steps:
+
+1. **Clone the Repository:**
+   ```bash
+   git clone git@github.com:vinnieOrdobas/ci_national_ai.git
+   cd ci_national_ai
+
+## **User Instructions**
+
+### Installation and Setup
+Follow these steps to set up the project locally on your machine:
+
+1. **Clone the Repository:**
+   - Use the following command to clone the project repository from GitHub:
+   ```bash
+   git clone git@github.com:vinnieOrdobas/ci_national_ai.git
+   cd ci_national_ai
+   
+## **Brainstorm & Research**
+
+Our team conducted a thorough brainstorming session to determine the most effective type of web application to address the identified problem. We considered various ideas and ultimately decided on a solution that leverages AI to provide accessible housing advice.
+
+### **Wireframes**
+To visualize our ideas, we created detailed wireframes that outline the structure and design of the web application. These wireframes guided our development process and ensured a user-friendly interface.
+
+- **Proposal Overview:**
+  ![Proposal Overview](./assets/Proposal.png)
+
+- **Landing Page Design:**
+  ![Landing Page](./assets/HomeIE%20-%20Landing%20Page.png)
+
+- **Chat Page Interface:**
+  ![Chat Page](./assets/HomeIE%20-%20Chat%20Page.png)
+
+- **Team & Contact Page Layout:**
+  ![Team & Contact Page](./assets/HomeIE%20-%20Team_Contact.png)
+
+### **Project Architecture**
+We engaged in discussions to finalize the architecture of the project. This included decisions on how to compile and integrate all components, with a particular focus on the integration of AI. Below is the architectural design we developed to serve as the foundation for the project:
+
+- **System Architecture Diagram:**
+  ![System Architecture](./assets/system_architecture.png)
+
+### **Planning & Organization**
+Following extensive planning meetings, Deirdre was elected as the Scrum Master. She was instrumental in organizing our efforts, including setting up a detailed Kanban board that allowed us to manage tasks effectively and stay on schedule.
+
+- **Kanban Board:**
+  ![Kanban Board](./assets/kanban_board.png)
+
+### Data Considerations for Model Fine-Tuning with Vertex AI
+
+When determining the data to gather for fine-tuning our model using Vertex AI, we evaluated several fine-tuning methods:
+
+**Supervised Fine-Tuning:**  
+This approach involves using a dataset where each example includes both an input (such as text or an image) and a corresponding desired output (such as a classification label or a generated text response). Supervised fine-tuning is particularly suited for tasks such as classification, summarization, reasoning, and question-answering.
+
+**Reinforcement Learning from Human Feedback (RLHF):**  
+This method involves fine-tuning the model based on human feedback to adjust the tone and style of the model's responses. An example of this process is when models like ChatGPT present multiple responses and ask users to rate them. While this technique can be valuable for refining the model's output style, we have determined that it is not necessary for our current objectives.
+
+**Model Distillation:**  
+Model distillation is typically employed to transfer the knowledge from a larger model to a smaller one, creating a more lightweight version suitable for deployment on devices with limited resources, such as Android. However, this method is not relevant to our current needs and will not be utilized.
+
+### Data Considerations for Supervised Learning
+
+Given that our training will focus on supervised learning tasks, it was crucial to carefully curate the dataset. The data had to be structured effectively, particularly in a question-and-answer format, to ensure that the model performed optimally in the targeted applications.
+
+We recognized the need for data that could be formatted in a conversational question/answer format to facilitate supervised fine-tuning.
+
+ ![JSONL on Chat GPT](./assets/jsonl_chatgpt.png)
+ ![Fine-tuning on Vertex AI](./assets/fine_tuning.png)
+
+### Technical Implementation and Pipeline Development
+
+**Pipeline Development:**
+Vinnie outlined the process for creating a test pipeline, which involves containerizing the application and deploying it to Google Cloud Platform (GCP). The goal is to validate the end-to-end process before scaling up to more complex tasks. This involves gathering and formatting datasets, uploading them to the GCP Console UI, and creating a comprehensive training pipeline. Given the computational demands of training a large language model (LLM), the process will require significant GPU resources.
+
+## **Pipeline Steps:**
+
+1. **Define the Pipeline:**
+   - **Objective:** Set up a simple test pipeline to validate the process.
+   - **Components:**
+     - Data preprocessing
+     - A simple training loop (e.g., training a small model on a small dataset)
+     - Evaluation and logging
+
+2. **Containerize the Pipeline:**
+   - **Step 1: Write a Dockerfile**
+     - **Objective:** Containerize the pipeline for deployment on GCP.
+   - **Step 2: Build and Test the Docker Image**
+     - **Commands to run:**
+       - `docker build -t my-pipeline .`
+       - `docker run my-pipeline`
+       - `gcloud auth login`
+     - **Tag and push the Docker image:**
+       - `docker tag my-pipeline gcr.io/<your-project-id>/my-pipeline:latest`
+       - `docker push gcr.io/<your-project-id>/my-pipeline:latest`
+
+3. **Deploy the Container to GCP:**
+   - **Step 1: Push the Docker Image to Google Container Registry (GCR)**
+     - Login to GCP and use the command line to push the image.
+       - `gcloud auth configure-docker`
+       - `docker push gcr.io/<your-project-id>/my-pipeline:latest`
+   - **Step 2: Deploy to Google Cloud Run or GKE**
+     - **For Google Cloud Run:**
+       - `gcloud run deploy my-service --image gcr.io/<your-project-id>/my-pipeline:latest --platform managed`
+     - **For Google Kubernetes Engine (GKE):**
+       - Create a GKE cluster and deploy the container.
+         - `gcloud container clusters create my-cluster --num-nodes=3`
+         - `kubectl create deployment my-deployment --image=gcr.io/<your-project-id>/my-pipeline:latest`
+         - `kubectl expose deployment my-deployment --type=LoadBalancer --port 80`
+
+4. **Test and Monitor the Pipeline on GCP:**
+   - **Step 1: Monitor the Deployment**
+     - Use the GCP Console to monitor logs, performance, and resource usage.
+       - `gcloud logging read "resource.type=cloud_run_revision"`
+     - Verify that the pipeline runs as expected and outputs the desired results.
+
+5. **Scaling Up: Training the LLM**
+   - **Step 1: Preparing for Full-Scale Training**
+     - **Objective:** Once the test pipeline is successful, scale up by preparing the full dataset and utilizing GPUs.
+     - **Tasks:**
+       - Data Preparation: Format and preprocess datasets as needed.
+       - Upload to GCP: Upload datasets to Google Cloud Storage (GCS).
+         - `gsutil cp /local/path/to/data.csv gs://<your-bucket-name>/data/`
+       - Adjust Pipeline for LLM: Modify the pipeline to train the larger model using the full dataset.
+       - GPU Resources: Ensure that the GCP environment is configured with GPUs (e.g., using GKE with GPU nodes or AI Platform).
+
+   - **Step 2: Train the LLM**
+     - **Initiate the Training:** Start the training process on the full-scale model using AI Platform’s training services or by running the job on GKE with GPU support.
+       - **For AI Platform:** `gcloud ai custom-jobs create --region=us-central1 --display-name=llm-training --config=config.yaml`
+       - **For GKE:** `kubectl apply -f llm-training-job.yaml`
+
+### Dataset Preparation and Optimization
+
+In the context of time and resource constraints, we capped the dataset size at 100k rows to balance efficiency and training time. This required distilling the datasets based on user stories and required capabilities, ensuring we retained underlying patterns while reducing dataset size. This approach aims to achieve over 90% efficiency while optimizing for time. we comprehensively researched relevant data, prioritised it and converted it to JSONL conversational Q&A format with context.
+
+![Dataset prioritization](./assets/dataset_research.png)
+
+### ChatGPT-Assisted Scraping and Dataset Preparation
+
+We leveraged ChatGPT to streamline the scraping and dataset preparation process. Key advantages included:
+- **Pro vs Mini:** Understanding the limitations and benefits of the Pro version, such as direct file uploads and downloads, which were crucial for data conversion tasks.
+- **Efficiency:** By uploading datasets directly to ChatGPT, we reduced the time required for data processing. Continuous chat functionality allowed for more nuanced and context-aware interactions.
+- **Error Monitoring:** We closely monitored ChatGPT for any mistakes and adjusted our prompts accordingly, highlighting the importance of precise question phrasing.
+
+In summary, these processes set the stage for effective supervised fine-tuning of the HomeIE model, ensuring it meets the needs of the targeted user base.
+
+## **FEATURES:**
+
+### **EXISTING FEATURES**
+
+1. **Interactive Chatbot Assistant**
+   - **Value Provided:** The interactive chatbot serves as the primary user interface, offering personalized advice and information based on user inputs. It significantly enhances user engagement by providing immediate, tailored responses.
+   - **Objective:** To provide users with accessible, accurate, and relevant housing advice based on their specific needs and inputs.
+   - **Response to Testing:** Comprehensive testing was conducted, focusing on response accuracy, context understanding, and user satisfaction. Details of the testing process and results are provided in the testing section below.
+
+2. **Form**
+   - **Value Provided:** The form allows users to input specific data anonymously, which the chatbot uses to generate personalized and relevant advice. This feature enhances the accuracy and relevance of the chatbot's responses.
+   - **Objective:** To gather essential user data that informs the chatbot’s responses, ensuring that advice is personalized and useful.
+   - **Response to Testing:** Testing focused on data handling, anonymity, and integration with the chatbot. Results indicate that the form successfully captures user data without compromising privacy, and this data is effectively used by the chatbot.
+
+3. **Language Abilities of the Chatbot**
+   - **Value Provided:** The chatbot supports multiple languages, making the application accessible to a broader audience, including non-native English speakers.
+   - **Objective:** To ensure that the chatbot can communicate effectively with users in various languages, improving accessibility and inclusivity.
+   - **Response to Testing:** Language testing involved assessing the chatbot’s ability to understand and respond in different languages. The chatbot successfully handled multiple languages, but ongoing improvements are planned to enhance fluency and cultural relevance.
+
+4. **API Integration with Looker Studio**
+   - **Value Provided:** This feature enables the dynamic display of real-time housing market statistics and trends through visualizations created in Looker Studio. This adds a valuable layer of data-driven insights to the user experience.
+   - **Objective:** To provide users with up-to-date visual information about the housing market, enhancing the advice given by the chatbot.
+   - **Response to Testing:** Testing involved ensuring that the API correctly retrieves and displays data from Looker Studio. The integration was successful, with data being accurately represented in the visualizations.
+
+### **FEATURES LEFT TO IMPLEMENT (Future Features)**
+
+1. **AI-Driven Screen Narration**
+   - **Objective:** To increase accessibility by enabling the AI to audibly describe on-screen content, assisting visually impaired users.
+   - **Impact:** This feature will make the HomeIE application more inclusive, ensuring that all users can access the information provided by the chatbot.
+
+2. **Video Prompts**
+   - **Objective:** To enhance user engagement by providing video prompts that guide users through the process of securing a home.
+   - **Impact:** Video prompts will offer a more interactive and educational experience, helping users understand complex information more easily.
+
+3. **EIRCODE Integration**
+   - **Objective:** To allow users to upload their EIRCODE, enabling the chatbot to search for housing options in that specific area.
+   - **Impact:** This feature will provide more localized and relevant housing information, making the advice even more personalized.
+
+4. **Photo Upload Capability**
+   - **Objective:** To allow users to upload photos that the chatbot can analyze to provide advice on housing conditions or potential improvements.
+   - **Impact:** This feature will add a visual analysis component to the chatbot’s capabilities, offering more comprehensive advice.
+
+5. **Representation of Mapped Data**
+ - **Objective:**
 
 ### Hackathon Specific Criteria:
-1. **Innovation & Creativity**
+ - **Innovation & Creativity**
+ - **Impact:** 
 
    Our solution stands out by consolidating all relevant information into a single platform, unlike Daft.ie, Home.ie, MABs, or Citizens Information, which offer fragmented resources. ‘Homie’ serves as an interactive guide, making the information more accessible and user-friendly.
 
@@ -77,19 +352,21 @@ Creativity and originality were central to our approach, and we implemented a ri
 
    To ensure data was handled ethically with respect to user privacy and consent, users are required to expressly state their consent where applicable. They are fully informed of any limitations through the disclaimers provided. Furthermore, if continuing with the web application, we would maintain accountability by regularly reviewing and auditing our AI processes to ensure they align with these ethical standards.
 
-   **Ask team about user consent, user clicking agreement/pop-ups...research AI processes**
-
 5. **Technical Implementation**
 
-   As kindly made available to us by TechIreland, we used GCP, OpenAI, Chat GPT 4.0, and Gemini to create the web application.
+ ## Technical Implementation
 
-   - Chat GPT - Dataset scraping and reformatting of files 
-   - GCP -
-   - Gemini - 
-   - Framework - Flask
-   -Limitations of GPU
+Thanks to the resources provided by TechIreland, we leveraged a combination of Google Cloud Platform (GCP), OpenAI, ChatGPT 4.0, and Gemini to build and deploy our web application.
 
-   - Technical difficulty = need to create a pipeline so different datasets could be added in same instance, model cannot be retrained, had to consolidate data into one file
+- **ChatGPT:** Used for dataset scraping and reformatting tasks, enabling us to structure data effectively for our AI models.
+- **GCP:** Served as the cloud platform for hosting, deploying, and scaling our application. GCP’s Vertex AI service played a crucial role in training and fine-tuning our models, efficiently utilizing GPU resources.
+- **Gemini:** Integrated alongside ChatGPT to enhance our AI models, providing advanced language capabilities to generate personalized housing advice.
+- **Framework - Flask:** Chosen for its simplicity and flexibility, Flask facilitated rapid development and seamless integration of AI models within the web application.
+- **GPU Limitations:** A key technical challenge was the need to consolidate various datasets into a single instance due to the model’s inability to be retrained in real-time. This required creating a pipeline that could handle multiple datasets efficiently within the same environment.
+
+## Technology Stack and Tools
+
+Our application was developed with a robust technology stack as described earlier in the README.
 
 6. **Feasibility & Scalability**
 
@@ -102,10 +379,17 @@ Creativity and originality were central to our approach, and we implemented a ri
 
 7. **User Experience (UX) & Design**
 
-   **to ask Stefan and Ray**
+ We believe that HomeIE offers an intuitive, responsive, and accessible user experience. The application is designed to be interactive and user-friendly, with a clear layout and consistent appearance. Key accessibility features, such as `alt` text and `aria-labels`, ensure that the website is usable for individuals relying on screen readers.
 
-   - Design Principles: Describe the design choices made to enhance UX. Highlight any user testing or feedback that influenced the design.
-   - Accessibility: Screen readers...can AI read responses? Easy to navigate...
+We incorporated the five planes of user experience in the design of HomeIE:
+
+1. **Strategy Plane:** Defined the objectives of the website, focusing on providing accessible housing advice.
+2. **Scope Plane:** Determined the functionalities required to meet user needs, such as the chatbot and API integrations.
+3. **Structure Plane:** Organized the content and features in a logical and user-friendly manner.
+4. **Skeleton Plane:** Developed wireframes and mockups to visualize the layout and navigation.
+5. **Surface Plane:** Applied visual design principles to ensure the website is aesthetically pleasing and consistent.
+
+This is further discussed later in the README.
 
 8. **Presentation & Pitch**
 
@@ -131,7 +415,7 @@ Creativity and originality were central to our approach, and we implemented a ri
    - **Compliance:** Our project complies with data protection regulations, ensuring that any data handled is done so securely and in accordance with relevant standards. We also implemented encryption and other security measures to prevent unauthorized access.
 
 4. **Accountability & Responsibility:**
-   - **Accountability Measures:** We established clear accountability by implementing logging and auditing mechanisms that track “Homie’s” interactions and decisions. This allows us to monitor for any errors or unintended consequences and correct them as needed.
+   - **Accountability Measures:** We established clear accountability by implementing logging and auditing mechanisms that track “HomeIE’s” interactions and decisions. This allows us to monitor for any errors or unintended consequences and correct them as needed.
    - **Ethical Considerations:** Our team carefully considered the ethical implications of deploying “Homie,” particularly in terms of its impact on users’ decisions regarding housing. We are committed to ongoing monitoring and updates to ensure responsible use.
 
 5. **Social & Environmental Responsibility:**
@@ -139,8 +423,8 @@ Creativity and originality were central to our approach, and we implemented a ri
    - **Environmental Responsibility:** While the primary focus of our project is on social impact, we have also considered the environmental footprint of our solution. We optimized the AI’s operations to minimize energy consumption and maximize efficiency.
 
 6. **Inclusivity & Accessibility:**
-   - **Inclusive Design:** “Homie” was developed with inclusivity in mind, offering accessible interfaces and easy-to-understand language to ensure it can be used by people from all walks of life, including those with disabilities.
-   - **Marginalized Groups:** Our team specifically tailored “Homie’s” advice to address the needs of marginalized groups, such as refugees, the elderly, and low-income individuals, ensuring that they receive relevant and actionable information.
+   - **Inclusive Design:** “HomeIE” was developed with inclusivity in mind, offering accessible interfaces and easy-to-understand language to ensure it can be used by people from all walks of life, including those with disabilities.
+   - **Marginalized Groups:** Our team specifically tailored “HomeIE’s” advice to address the needs of marginalized groups, such as refugees, the elderly, and low-income individuals, ensuring that they receive relevant and actionable information.
 
 ### National AI Strategy
 
@@ -186,163 +470,6 @@ The project is targeting Irish residents who are seeking clear, accessible advic
 
 The project will empower users to make well-informed decisions about securing a home by offering tailored advice that takes into account their unique circumstances. This advice is based on comprehensive research and the specific information they provide. What sets our solution apart is its ability to draw from a wide range of reliable sources, ensuring that users receive the most accurate and relevant guidance available.
 
-<b>Technical Details:</b>
-
-**Berat to complete this section?
-The technology stack used
-Any significant libraries used
-Frameworks used: Flask
-APIs, and the reasoning behind these choices.
-Training 
-Environment set-up, dependencies
-
-<b>User instructions</b>
-User Instructions:
-Installation and Setup: Provide clear step-by-step instructions on how to set up the project locally. This should include environment setup, dependencies, and how to run the application.
-Usage Guide: Add a brief guide on how users can interact with the AI assistant, including sample questions or scenarios to help them understand how to use the tool effectively.
-
-
-Planning - Description of subscription, making Github collaborative, choosing the project and why (what else was considered), step by step of User stories, Agile, Data gathering, Model Training, Supervized fine tuning, creating a training pipeline for a custom job with Vertex AI
-
-<b>Brainstorm:& Research</b>
-
-<p>Our team brainstormed this idea by thinking about what type of web application would be ideal for the solution we have in mind. Please see wireframes below:t
-
-![alt text](./assets/Proposal.png)
-![Alt text](./assets/HomeIE%20-%20Landing%20Page.png)
-![Alt text](./assets/HomeIE%20-%20Chat%20Page.png)
-![Alt text](./assets/HomeIE%20-%20Team_Contact.png)
-
-We also discussed the architecture of the project - how we would compile/combine all elements as well as integrate the AI. We designed the following point of reference for the architecture of the project:
-
-![Alt text](./assets/system_architecture.png)
-
-Next after extensive planning meetings, we elected Deirdre as Scrum Master and she set up a detailed KanBan Board.:
-
-![Alt text](./assets/kanban.png)
-
-### Data Considerations for Model Fine-Tuning with Vertex AI
-
-When determining the data to gather for fine-tuning our model using Vertex AI, we evaluated several fine-tuning methods:
-
-**Supervised Fine-Tuning:**  
-This approach involves using a dataset where each example includes both an input (such as text or an image) and a corresponding desired output (such as a classification label or a generated text response). Supervised fine-tuning is particularly suited for tasks such as classification, summarization, reasoning, and question-answering.
-
-**Reinforcement Learning from Human Feedback (RLHF):**  
-This method involves fine-tuning the model based on human feedback to adjust the tone and style of the model's responses. An example of this process is when models like ChatGPT present multiple responses and ask users to rate them. While this technique can be valuable for refining the model's output style, we have determined that it is not necessary for our current objectives.
-
-**Model Distillation:**  
-Model distillation is typically employed to transfer the knowledge from a larger model to a smaller one, creating a more lightweight version suitable for deployment on devices with limited resources, such as Android. However, this method is not relevant to our current needs and will not be utilized.
-
-### Data Considerations for Supervised Learning
-
-Given that our training will focus on supervised learning tasks, it is crucial to carefully curate the dataset. The data must be structured effectively, particularly in a question-and-answer format, to ensure that the model performs optimally in the targeted applications.
-
-We recognized the need for data that could be formatted in a conversational question/answer format to facilitate supervised fine-tuning.
-
-### Technical Implementation and Pipeline Development
-
-**Pipeline Development:**
-Vinnie outlined the process for creating a test pipeline, which involves containerizing the application and deploying it to Google Cloud Platform (GCP). The goal is to validate the end-to-end process before scaling up to more complex tasks. This involves gathering and formatting datasets, uploading them to the GCP Console UI, and creating a comprehensive training pipeline. Given the computational demands of training a large language model (LLM), the process will require significant GPU resources.
-
-**Pipeline Steps:**
-
-1. **Define the Pipeline:**
-   - **Objective:** Set up a simple test pipeline to validate the process.
-   - **Components:**
-     - Data preprocessing
-     - A simple training loop (e.g., training a small model on a small dataset)
-     - Evaluation and logging
-
-2. **Containerize the Pipeline:**
-   - **Step 1: Write a Dockerfile**
-     - **Objective:** Containerize the pipeline for deployment on GCP.
-   - **Step 2: Build and Test the Docker Image**
-     - **Commands to run:**
-       - `docker build -t my-pipeline .`
-       - `docker run my-pipeline`
-       - `gcloud auth login`
-     - **Tag and push the Docker image:**
-
-3. **Deploy the Container to GCP:**
-   - **Step 1: Push the Docker Image to Google Container Registry (GCR)**
-     - Login to GCP and use the command line to push the image.
-   - **Step 2: Deploy to Google Cloud Run or GKE**
-     - **For Google Cloud Run:**
-     - **For Google Kubernetes Engine (GKE):**
-       - Create a GKE cluster and deploy the container.
-
-4. **Test and Monitor the Pipeline on GCP:**
-   - **Step 1: Monitor the Deployment**
-     - Use the GCP Console to monitor logs, performance, and resource usage.
-     - Verify that the pipeline runs as expected and outputs the desired results.
-
-5. **Scaling Up: Training the LLM**
-   - **Step 1: Preparing for Full-Scale Training**
-     - **Objective:** Once the test pipeline is successful, scale up by preparing the full dataset and utilizing GPUs.
-     - **Tasks:**
-       - Data Preparation: Format and preprocess datasets as needed.
-       - Upload to GCP: Upload datasets to Google Cloud Storage (GCS).
-       - Adjust Pipeline for LLM: Modify the pipeline to train the larger model using the full dataset.
-       - GPU Resources: Ensure that the GCP environment is configured with GPUs (e.g., using GKE with GPU nodes or AI Platform).
-
-   - **Step 2: Train the LLM**
-     - **Initiate the Training:** Start the training process on the full-scale model using AI Platform’s training services or by running the job on GKE with GPU support.
-
-### Dataset Preparation and Optimization
-
-In the context of time and resource constraints, we capped the dataset size at 100k rows to balance efficiency and training time. This required distilling the datasets based on user stories and required capabilities, ensuring we retained underlying patterns while reducing dataset size. This approach aims to achieve over 90% efficiency while optimizing for time.
-
-### ChatGPT-Assisted Scraping and Dataset Preparation
-
-We leveraged ChatGPT to streamline the scraping and dataset preparation process. Key advantages included:
-- **Pro vs Mini:** Understanding the limitations and benefits of the Pro version, such as direct file uploads and downloads, which were crucial for data conversion tasks.
-- **Efficiency:** By uploading datasets directly to ChatGPT, we reduced the time required for data processing. Continuous chat functionality allowed for more nuanced and context-aware interactions.
-- **Error Monitoring:** We closely monitored ChatGPT for any mistakes and adjusted our prompts accordingly, highlighting the importance of precise question phrasing.
-
-In summary, these processes set the stage for effective supervised fine-tuning of the HomeIE model, ensuring it meets the needs of the targeted user base.
-## **FEATURES:**
-
-### **EXISTING FEATURES**
-
-1. **Interactive Chatbot Assistant**
-   - **Value Provided:** The interactive chatbot serves as the primary user interface, offering personalized advice and information based on user inputs. It significantly enhances user engagement by providing immediate, tailored responses.
-   - **Objective:** To provide users with accessible, accurate, and relevant housing advice based on their specific needs and inputs.
-   - **Response to Testing:** Comprehensive testing was conducted, focusing on response accuracy, context understanding, and user satisfaction. Details of the testing process and results are provided in the testing section below.
-
-2. **Form**
-   - **Value Provided:** The form allows users to input specific data anonymously, which the chatbot uses to generate personalized and relevant advice. This feature enhances the accuracy and relevance of the chatbot's responses.
-   - **Objective:** To gather essential user data that informs the chatbot’s responses, ensuring that advice is personalized and useful.
-   - **Response to Testing:** Testing focused on data handling, anonymity, and integration with the chatbot. Results indicate that the form successfully captures user data without compromising privacy, and this data is effectively used by the chatbot.
-
-3. **Language Abilities of the Chatbot**
-   - **Value Provided:** The chatbot supports multiple languages, making the application accessible to a broader audience, including non-native English speakers.
-   - **Objective:** To ensure that the chatbot can communicate effectively with users in various languages, improving accessibility and inclusivity.
-   - **Response to Testing:** Language testing involved assessing the chatbot’s ability to understand and respond in different languages. The chatbot successfully handled multiple languages, but ongoing improvements are planned to enhance fluency and cultural relevance.
-
-4. **API Integration with Looker Studio**
-   - **Value Provided:** This feature enables the dynamic display of real-time housing market statistics and trends through visualizations created in Looker Studio. This adds a valuable layer of data-driven insights to the user experience.
-   - **Objective:** To provide users with up-to-date visual information about the housing market, enhancing the advice given by the chatbot.
-   - **Response to Testing:** Testing involved ensuring that the API correctly retrieves and displays data from Looker Studio. The integration was successful, with data being accurately represented in the visualizations.
-
-### **FEATURES LEFT TO IMPLEMENT (Future Features)**
-
-1. **AI-Driven Screen Narration**
-   - **Objective:** To increase accessibility by enabling the AI to audibly describe on-screen content, assisting visually impaired users.
-   - **Impact:** This feature will make the HomeIE application more inclusive, ensuring that all users can access the information provided by the chatbot.
-
-2. **Video Prompts**
-   - **Objective:** To enhance user engagement by providing video prompts that guide users through the process of securing a home.
-   - **Impact:** Video prompts will offer a more interactive and educational experience, helping users understand complex information more easily.
-
-3. **EIRCODE Integration**
-   - **Objective:** To allow users to upload their EIRCODE, enabling the chatbot to search for housing options in that specific area.
-   - **Impact:** This feature will provide more localized and relevant housing information, making the advice even more personalized.
-
-4. **Photo Upload Capability**
-   - **Objective:** To allow users to upload photos that the chatbot can analyze to provide advice on housing conditions or potential improvements.
-   - **Impact:** This feature will add a visual analysis component to the chatbot’s capabilities, offering more comprehensive advice.
-
 ## TESTING
 
 We have conducted extensive testing to ensure that the web application has reached an acceptable level of functionality. The various types of testing conducted are outlined below:
@@ -353,23 +480,25 @@ We performed comprehensive manual testing on all features of the application to 
 ### Lighthouse Testing Using Developer Tools
 Lighthouse testing was conducted using developer tools to assess the website's performance, accessibility, best practices, and SEO. We viewed the website on different browsers, both manually and online, to ensure a consistent and accessible experience across all platforms. Accessibility was a priority, and Lighthouse provided crucial insights that helped us refine the user experience.
 
+![Lighthouse](./assets/lighthouse_test.png)
+
 ### Validator Testing Using Online Validation Tools
 To ensure that our code adheres to industry standards, we used the following validation tools:
 
 - **W3C Markup Validation Service for HTML**
-  - [Include a brief summary of the results here, e.g., "All HTML files passed validation with no errors."]
+  ![HTML Test](./assets/html_check.png)
 
 - **W3C CSS Validator for CSS**
-  - [Include a brief summary of the results here, e.g., "All CSS files passed validation with minor warnings that were addressed."]
+  ![CSS Test](./assets/css.png)
 
-- **JSHint for JavaScript**
-  - [Include a brief summary of the results here, e.g., "JavaScript code passed validation with minor improvements suggested for code efficiency."]
+  **JSHint for Javascript**
+ ![Javascript Test](./assets/javascript.png)
 
-- **Pylint for Python**
-  - [Include a brief summary of the results here, e.g., "Python scripts were tested and met the required coding standards, with a PEP8 compliance rate of 95%."]
+- **Extendsclass.com for Python**
+  ![Python Test](./assets/python.png)
 
 - **WAVE Web Accessibility Evaluation Tool**
-  - [Include a brief summary of the results here, e.g., "The accessibility audit revealed minimal issues, which were promptly corrected to ensure full compliance with accessibility standards."]
+  ![Wave Test](./assets/wave.png)
 
 ### Overall Testing Summary
 In addition to the above, we manually tested all of the project's features to ensure they operated as intended. The testing process was thorough, involving various approaches to validate the functionality, responsiveness, and accessibility of the website. By interacting with developer tools and performing manual checks across different devices and viewports, we ensured that the website is fully functional and responsive.
@@ -394,10 +523,10 @@ In addition to the above, we manually tested all of the project's features to en
 
    **Screengrabs of Different Tests:**
 
-   - iPhone 12 Pro: ![alt text]()
-   - MacBook Pro: ![alt text]()
-   - iPad Air: ![alt text]()
-   - Nest Hub: ![alt text]()
+   - iPhone 12 Pro: ![iPhone 12 Pro](./assets/iphone12.png)
+   - MacBook Pro: ![MafBook Pro](./assets/macbook_pro.png)
+   - iPad Air: ![iPad Air](./assets/ipad_air.png)
+   - Nest Hub: ![Nest Hub](./assets/nesthub.png)
 
 2. **Testing Across Different Browsers**
    - The website was opened on various browsers to ensure compatibility and intended functionality.
@@ -415,11 +544,9 @@ In addition to the above, we manually tested all of the project's features to en
 
 **Addressed Bugs and Problems:**
 - [List of bugs/issues that were identified and fixed, e.g., "Fixed issue with image rendering on iPhone 12 Pro."]
-- [Another addressed bug, e.g., "Corrected hyperlink behavior in Safari."]
 
 **Unaddressed Bugs and Problems:**
-- [List of bugs/issues that remain unresolved, e.g., "Minor CSS alignment issue on Internet Explorer."]
-- [Another unaddressed bug, e.g., "Occasional slow loading times on Nest Hub."]
+- The Chatbot chat window does not delete unless you exit or refresh page.
 
 ### Additional Notes
 - Testing was conducted across various devices and browsers to ensure comprehensive coverage. Any issues discovered were documented and prioritized for resolution based on their impact on the user experience.
@@ -430,52 +557,13 @@ In addition to the above, we manually tested all of the project's features to en
 1. **Problem:** [Describe the specific issue encountered]
    - **Solution:** [Explain how the issue was resolved]
 
-2. **Problem:** [Describe the specific issue encountered]
-   - **Solution:** [Explain how the issue was resolved]
-
-3. **Problem:** [Describe the specific issue encountered]
-   - **Solution:** [Explain how the issue was resolved]
-
-4. **Problem:** [Describe the specific issue encountered]
-   - **Solution:** [Explain how the issue was resolved]
-
 ### Lighthouse Testing
 
 In alignment with the National AI Strategy, we aimed to ensure that our web application was fully accessible. To achieve this, we utilized the Lighthouse testing tool available through Developer Tools.
 
 Below is a screengrab of the initial Lighthouse test results, which we believe demonstrate adequate performance across key metrics (Performance, Accessibility, Best Practices, SEO):
 
-![Lighthouse Test Results Initial](link_to_image)
-
-After addressing all HTML and CSS errors identified during the first round of testing, we re-ran the Lighthouse validation. The subsequent test results confirmed that the adjustments improved overall scores:
-
-![Lighthouse Test Results After Fixes](link_to_image)
-
-### HTML and CSS Validation
-
-#### HTML Validation
-
-The HTML of the website was validated using the W3C Markup Validation Service. Each page was tested by copying the HTML code directly from GitHub and pasting it into the validator’s input window. Below are screengrabs of the validation process:
-
-- **HTML Code Input:** ![HTML Validation Input](link_to_image)
-- **Validation Results:** ![HTML Validation Results](link_to_image)
-
-For each page, I manually corrected the errors as they were identified. Below is a summary of the errors encountered and the actions taken to resolve them:
-
-1. **Page Name: [Insert Page Name]**
-   - **Error:** [Description of the error]
-   - **Solution:** [Steps taken to fix the error]
-
-2. **Page Name: [Insert Page Name]**
-   - **Error:** [Description of the error]
-   - **Solution:** [Steps taken to fix the error]
-
-#### CSS Validation
-
-The CSS of the website was validated using the W3C CSS Validator. Each stylesheet was tested to ensure compliance with CSS standards. Below are screengrabs of the validation process and results:
-
-- **CSS Validation Input:** ![CSS Validation Input](link_to_image)
-- **Validation Results:** ![CSS Validation Results](link_to_image)
+![Kanban Board- MOSCOW](./assets/kanban_board.png)
 
 ### Deployment Process
 
@@ -483,21 +571,16 @@ The site was successfully deployed to GitHub Pages. The following steps outline 
 
 1. **Repository Selection:**
    - Navigate to the relevant GitHub repository and go to the Settings tab.
-   - ![Repository Selection](link_to_image)
-
+   
 2. **Branch Selection:**
    - From the source section drop-down menu, select the `Master` branch (or `Main` branch depending on the repository setup).
-   - ![Branch Selection](link_to_image)
 
 3. **Deployment Confirmation:**
    - Once the branch is selected, the page will refresh, and a ribbon display will indicate that the deployment was successful.
-   - ![Deployment Confirmation](link_to_image)
-
-The live link to the deployed website can be found [here](link_to_live_site).
+   
+The live link to the deployed website can be found here: https://marine-copilot-433717-q0.ey.r.appspot.com/clientui/#info
 
 ### User Experience
-
-We believe that HomeIE offers an intuitive, responsive, and accessible user experience. The application is designed to be interactive and user-friendly, with a clear layout and consistent appearance. Key accessibility features, such as `alt` text and `aria-labels`, ensure that the website is usable for individuals relying on screen readers.
 
 We incorporated the five planes of user experience in the design of HomeIE:
 
@@ -514,8 +597,6 @@ Throughout the project, we used various collaboration tools to streamline develo
 - **GitHub:** Managed version control, pull requests, and code reviews.
 - **Slack:** Facilitated communication and coordination among team members.
 - **Virtual Machines and APIs:** Used for testing and integration with external data sources. Below are screengrabs of these processes:
-
-![VM and API Integration](link_to_image)
 
 ### 1. Strategy Plane
 
@@ -546,13 +627,15 @@ We adjusted the sprints, etc., to suit the compressed timeline of the Hackathon.
 
 Due to time pressure, there was a danger of scope creep (adding random new features too late), so we actively avoided this by employing the MOSCOW prioritization technique; considering what items were **must have**, **should have**, and **could have**.
 
+![Kanban Board- MOSCOW](./assets/kanban.png)
+
 When distinguishing what features to add, we considered:
 
 - What users need.
 - What they actually need.
 - What they don't know they need.
 
-In terms of content requirements, we included mixed content with images, *video*, and *animations*, ensuring that everything included was useful, sellable, and buildable.
+In terms of content requirements, we included mixed content with images, logos, *video*, and *animations*, ensuring that everything included was useful, sellable, and buildable.
 
 *Adjust to content of the end product, will we have a form, will we have video/animations/live data.*
 
@@ -730,6 +813,7 @@ As we continue to improve the visual aspects of HomeIE, we plan to introduce ani
 - [Daft.ie](https://www.daft.ie/)
 - [Residential Tenancies Board (RTB)](https://www.rtb.ie/)
 - [Google Cloud - Vertex AI Training Pipeline Documentation](https://cloud.google.com/vertex-ai/docs/training/create-training-pipeline)
+- [ai.meta.com] (https://ai.meta.com/blog/meta-llama-3-1/)
 
 ### **Acknowledgements**
 
