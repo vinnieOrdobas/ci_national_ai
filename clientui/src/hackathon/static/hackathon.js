@@ -70,7 +70,8 @@ class HackathonUI {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    "prompt": this.current_prompt
+                    "prompt": this.current_prompt,
+                    "history": this.history
                 })
             });
             var data = await response.json();
