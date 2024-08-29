@@ -54,14 +54,14 @@
             </section>
         </section>
     </div>
-    
+
     <section id="about" class="container my-5"  gui-show="hackathon.tab=='info'">
         <div class="row">
             <div class="col">
                 <h2 class="mb-3">About HomeIE</h2>
             </div>
         </div>
-        
+
         <div class="row gx-5">
             <div class="col-sm-12 col-md-6">
                 <p>HomeIE seeks to help people in Ireland transition from the insecurity of the private rental market into secure long-term housing. Given your personal circumstances, it helps you to understand some options, to progress to a longer-term housing solution, and spells out some steps you may need to take to do so.</p>
@@ -85,7 +85,7 @@
             </div>
         </div>
 
-        <div> 
+        <div>
             <p>Question 1: An answer both entertaining and illuminating</p>
             <p>Question 2: An answer both entertaining and illuminating</p>
         </div>
@@ -123,35 +123,65 @@
         </div>
 
     </section>
+
     <!-- Chatbot UI Screen -->
-    
+
     <div id="chatbot" class="container my-5" gui-show="hackathon.tab=='chat'">
-        <h2>Chatbot</h2>
-        <div class="card">
-            <div class="card-body">
-                <div class="chat-window mb-3">
-                    <div gui-list="hackathon.history" gui-item="history">
-                        <div class="chat-message" gui-class="history.from">
-                            <div class="chat-bubble" gui-class="history.from" gui-text="history.text"></div>
+        <div class="row">
+            <div class="col-sm-12 col-md-3">
+                <h2>User Instructons</h2>
+                <form>
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="name">Name</span>
                         </div>
+                        <input type="text" class="form-control" aria-label="Name">
                     </div>
 
-                    <!-- Typing Indicator -->
-                    <div class="chat-message bot" id="typingIndicator" gui-show="hackathon.loading">
-                        <div class="typing-indicator">
-                            <div class="dot"></div>
-                            <div class="dot"></div>
-                            <div class="dot"></div>
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="name">Location</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Name">
+                    </div>
+
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="name">Income p/a</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Name">
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-12 col-md-9">
+                <h2>Chatbot</h2>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="chat-window mb-3">
+                            <div gui-list="hackathon.history" gui-item="history">
+                                <div class="chat-message" gui-class="history.from">
+                                    <div class="chat-bubble" gui-class="history.from" gui-text="history.text"></div>
+                                </div>
+                            </div>
+
+                            <!-- Typing Indicator -->
+                            <div class="chat-message bot" id="typingIndicator" gui-show="hackathon.loading">
+                                <div class="typing-indicator">
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Type your message here" aria-label="Chat input" gui-val="hackathon.current_prompt"></input>
+                            <button class="btn btn-primary" type="button" gui-click="hackathon.process_prompt()">Send</button>
                         </div>
                     </div>
                 </div>
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Type your message here" aria-label="Chat input" gui-val="hackathon.current_prompt"></input>
-                    <button class="btn btn-primary" type="button" gui-click="hackathon.process_prompt()">Send</button>
-                </div>
+                <span id="chatbotend"></span>
             </div>
         </div>
-        <span id="chatbotend"></span>
     </div>
 
     <!-- Contact Info Screen -->
