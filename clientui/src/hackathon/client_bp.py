@@ -8,6 +8,8 @@ from flask import current_app
 from flask import request
 from flask import jsonify
 
+import markdown
+
 import vertexai
 from vertexai.preview.generative_models import GenerativeModel, ChatSession
 
@@ -73,4 +75,4 @@ def send_prompt():
 
     response = model.generate_content(prompt)
 
-    return jsonify({"reply": response.text})
+    return jsonify({"reply": markdown.markdown(response.text)})
