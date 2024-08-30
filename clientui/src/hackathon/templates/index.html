@@ -38,7 +38,7 @@
                     <a class="nav-link" gui-class="hackathon.tab=='contact'&&'active'" href="#contact">Contact</a>
                 </li>
                 <li class="nav-item px-3" gui-click="hackathon.set_tab('chat')">
-                    <a role="button" class="btn btn-primary" gui-class="hackathon.tab=='chat'&&'active'" href="#chatbotend">Try Homie Now!</a>
+                    <a role="button" class="btn btn-primary" href="#chatbotend">Try Homie Now!</a>
                 </li>
             </ul>
         </div>
@@ -167,8 +167,59 @@
     </section>
 
     <!-- Chatbot UI Screen -->
+    <div class="modal bd-example-modal-lg modal-container" tabindex="-1" role="dialog" gui-class="(hackathon.tab=='chat'&&!hackathon.chat_active)&&'is_visible'">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Before we start...</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="col">
+                                <label for="location">Location</label>
+                                <input type="text" id="location" class="form-control" placeholder="e.g. Dublin" gui-val="hackathon.user_info.location">
+                            </div>
 
-    <div id="chatbot" class="container" gui-show="hackathon.tab=='chat'">
+                            <div class="col">
+                                <label for="income">Income &euro; (p/a)</label>
+                                <input type="number" id="income" class="form-control" placeholder="21000" gui-val="hackathon.user_info.income">
+                            </div>
+                            <div class="col">
+                                <label for="name">Savings &euro; (total)</label>
+                                <input type="text" id="name" class="form-control" placeholder="2100" gui-val="hackathon.user_info.savings">
+                            </div>
+                        </div>
+                        <div class="row my-2">
+                             <div class="col">Tax paid in previous years (&euro;):</div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" id="tax-2023" class="form-control" gui-val="hackathon.user_info.tax_2023" placeholder="2023">
+                            </div>
+
+                            <div class="col">
+                                <input type="text" id="tax-2022" class="form-control" gui-val="hackathon.user_info.tax_2022" placeholder="2022">
+                            </div>
+
+                            <div class="col">
+                                <input type="number" id="tax-2021" class="form-control" gui-val="hackathon.user_info.tax_2021" placeholder="2021">
+                            </div>
+
+                            <div class="col">
+                                <input type="number" id="tax-2020" class="form-control" gui-val="hackathon.user_info.tax_2020" placeholder="2020">
+                            </div>
+                       </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" gui-click="hackathon.start_chat()">Start Chat</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="chatbot" vclass="container" gui-show="hackathon.tab=='chat_user_info'">
         <div class="row">
             <div class="col-sm-12 col-md-3">
                 <button class="btn btn-primary btn-sm d-inline" gui-click="hackathon.toggle_visible('user_info')">User Info</button>
@@ -217,6 +268,9 @@
                 </form>
             </div>
         </div>
+    </div>
+
+    <div id="chatbot" class="container" gui-show="hackathon.tab=='chat'">
         <div class="row mt-3">
             <div class="col">
                 <h2>Homie</h2>
@@ -331,7 +385,11 @@
             <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
                 <div class="profile-card">
                     <img src="https://ca.slack-edge.com/T0L30B202-U0443TJJAJW-795ce6c4a299-512" alt="Profile Photo 1" class="profile-photo">
-                    <h5 class="m-0">Berat Zorlu<a href="https://www.linkedin.com/in/janedoe" class="linkedin-link" target="_blank"><i class="bi bi-linkedin"></i></a></h5>
+                    <h5 class="m-0">
+                        Berat Zorlu
+                        <a href="https://www.linkedin.com/in/janedoe" class="linkedin-link" target="_blank"><i class="bi bi-linkedin"></i></a>
+                        <a href="https://www.linkedin.com/in/janedoe" class="linkedin-link" target="_blank"><i class="bi bi-github"></i></a>
+                    <i class="bi bi-github"></i></h5>
                     <div class="role">Chief Recombobulator</div>
                 </div>
             </div>
