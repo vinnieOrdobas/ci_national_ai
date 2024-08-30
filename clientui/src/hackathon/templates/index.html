@@ -219,57 +219,6 @@
         </div>
     </div>
 
-    <div id="chatbot" vclass="container" gui-show="hackathon.tab=='chat_user_info'">
-        <div class="row">
-            <div class="col-sm-12 col-md-3">
-                <button class="btn btn-primary btn-sm d-inline" gui-click="hackathon.toggle_visible('user_info')">User Info</button>
-            </div>
-        </div>
-        <div class="row user_info" gui-class="hackathon.visibility.user_info&&'is_visible'">
-            <div class="col">
-                <h2>User Info</h2>
-                <form>
-                    <div class="row">
-                        <div class="col">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" class="form-control" placeholder="e.g. Alex" gui-val="hackathon.user_info.name">
-                        </div>
-
-                        <div class="col">
-                            <label for="location">Location</label>
-                            <input type="text" id="location" class="form-control" placeholder="e.g. Dublin" gui-val="hackathon.user_info.location">
-                        </div>
-
-                        <div class="col">
-                            <label for="income">Income &euro; (p/a)</label>
-                            <input type="number" id="income" class="form-control" placeholder="21000" gui-val="hackathon.user_info.income">
-                        </div>
-                    </div>
-                    <div class="row my-2">
-                         <div class="col">Tax paid in previous years (&euro;):</div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <input type="text" id="tax-2023" class="form-control" gui-val="hackathon.user_info.tax_2023" placeholder="2023">
-                        </div>
-
-                        <div class="col">
-                            <input type="text" id="tax-2022" class="form-control" gui-val="hackathon.user_info.tax_2022" placeholder="2022">
-                        </div>
-
-                        <div class="col">
-                            <input type="number" id="tax-2021" class="form-control" gui-val="hackathon.user_info.tax_2021" placeholder="2021">
-                        </div>
-
-                        <div class="col">
-                            <input type="number" id="tax-2020" class="form-control" gui-val="hackathon.user_info.tax_2020" placeholder="2020">
-                        </div>
-                   </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
     <div id="chatbot" class="container" gui-show="hackathon.tab=='chat'">
         <div class="row mt-3">
             <div class="col">

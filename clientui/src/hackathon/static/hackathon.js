@@ -94,7 +94,6 @@ class HackathonUI {
         this.loading = false;
         this.current_prompt = '';
         this.valid_prompt = false;
-        this.chat_active = false;
         turtlegui.reload();
     }
 
