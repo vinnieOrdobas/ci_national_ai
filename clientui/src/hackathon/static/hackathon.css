@@ -4,6 +4,7 @@
     --primary-green: #21aa45;
     --secondary-green: #8fd123;
     --primary-purple: #afb7e3;
+    --slide-color: #1181AE;
 }
 
 * {
@@ -24,12 +25,13 @@
 .title-page {
 	height: 600px; /* Full viewport height */
 	background: url('/clientui/static/images/hero_image.png') no-repeat center center/cover;
-    background-color: var(--primary-purple);
+    background-color: var(--slide-color);
 }
 
 .title-page .title-text {
     max-width: 350px;
     margin-left: 150px;
+    color: black;
 }
 
 .disclaimer-image {
@@ -47,8 +49,8 @@
     border-radius: 0.375rem;
     padding: 10px;
     background-color: #f8f9fa;
-    height: 500px;
-    max-height: 500px;
+    height: calc(80vh - 120px);
+    max-height: calc(80vh - 120px);
     overflow-y: scroll;
 }
 .chat-message {

@@ -31,9 +31,9 @@ class HackathonUI {
             disclaimer: false,
         };
         this.user_info = {
-            name: null,
             location: null,
             income: null,
+            savings: null,
             tax_2023: null,
             tax_2022: null,
             tax_2021: null,
@@ -125,6 +125,12 @@ class HackathonUI {
 
     toggle_visible(section){
         this.visibility[section] = !this.visibility[section];
+        turtlegui.reload();
+    }
+
+    start_chat() {
+        this.chat_active = true;
+        this.current_prompt = null;
         turtlegui.reload();
     }
 }

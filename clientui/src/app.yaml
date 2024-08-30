@@ -4,8 +4,8 @@ entrypoint: gunicorn -b :$PORT server:app
 
 env_variables:
   PROJECT_ID: "code-institute-433215"
-  LOCATION: "us-central1"
-  ENDPOINT_ID: "1150104555816484864"
+  LOCATION: "europe-west2"
+  ENDPOINT_ID: "2189985269971681280"
 
 
 handlers:
