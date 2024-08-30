@@ -45,6 +45,7 @@
     </nav>
 
     <!-- General Info Screen -->
+
     <div class="container-fluid home-section" gui-show="hackathon.tab=='info'">
         <section id="info" class="row p-0 m-0">
 
@@ -166,6 +167,21 @@
 
     </section>
 
+    <section id="data-protection" class="container my-5" gui-show="hackathon.tab=='info'">
+
+        <div class="row my-5">
+            <div class="col-sm-12 col-md-6 data-protection-image">
+            </div>
+
+            <div class="col-sm-12 col-md-6">
+                <h2>Data Protection</h2>
+                <p>
+                    Any data you enter (income, outgoings, work situation, etc) is retained by HomeIE for the duration of the session only. However, this data is submitted to a commercial LLM platform and we actually haven't a clue whether they are going to grab your data and punish you with it forever. Sorry about that.
+                </p>
+            </div>
+        </div>
+
+    </section>
     <!-- Chatbot UI Screen -->
 
     <div id="chatbot" class="container" gui-show="hackathon.tab=='chat'">
@@ -289,6 +305,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 
     <div class="modal bd-example-modal-lg modal-container" tabindex="-1" role="dialog" aria-hidden="true" gui-class="hackathon.visibility.disclaimer&&'is_visible'">
