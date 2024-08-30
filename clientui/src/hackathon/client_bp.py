@@ -38,7 +38,7 @@ Formatting and Language:
 * If point-based spatial data is available use a Google Maps interface to present this data so the user can interact with the map.
 Here is some of my information about this session:
 * My preferred location is {location}, Ireland.
-* My salary per annum is {salary} Euro
+* My income per annum is {income} Euro
 * My total savings are {savings} Euro
 """
 
@@ -52,22 +52,25 @@ def client_root():
 def send_prompt():
     data = request.json
     print("Got %s" % (data,))
-    
+
     model = GenerativeModel(f"projects/{project_id}/locations/{location}/endpoints/{endpoint_id}")
-    
-    initial_prompt = initial_prompt_template.format(location=data['user_info']['location'], salary=data['user_info']['salary'], savings=data['user_info']['savings'])]
-    initial_prompt += '\n* I paid {tax_2023} Euro tax in 2023' if data['user_info']['tax_2023'] else ''  
-    initial_prompt += '\n* I paid {tax_2022} Euro tax in 2022' if data['user_info']['tax_2022'] else '' 
+
+    initial_prompt = initial_prompt_template.format(
+        location=data['user_info']['location'],
+        income=data['user_info']['income'],
+        savings=data['user_info']['savings'])
+    initial_prompt += '\n* I paid {tax_2023} Euro tax in 2023' if data['user_info']['tax_2023'] else ''
+    initial_prompt += '\n* I paid {tax_2022} Euro tax in 2022' if data['user_info']['tax_2022'] else ''
     initial_prompt += '\n* I paid {tax_2021} Euro tax in 2021' if data['user_info']['tax_2021'] else ''
     initial_prompt += '\n* I paid {tax_2020} Euro tax in 2020' if data['user_info']['tax_2020'] else ''
-    prompt = [initial_prompt] 
-    
+    prompt = [initial_prompt]
+
     if data['history']:
         prompt += [p['text'] for p in data['history']]
 
     if data['prompt']:
         prompt += [data['prompt']]
-    
+
     response = model.generate_content(prompt)
 
     return jsonify({"reply": response.text})
