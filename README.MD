@@ -1,4 +1,3 @@
-
 # HomeIE - the AI Assistant that helps you to find a secure home - AI here for good!
 
 ![Responsive Image](./assets/240828%20AmIResponsive.png)
@@ -348,7 +347,8 @@ In summary, these processes set the stage for effective supervised fine-tuning o
 
    Ethical AI principles: fairness, transparency, privacy, and accountability throughout the design and implementation of our AI solution.
 
-   Homie adheres to these ethical AI principles by ensuring fairness in decision-making processes, allowing users to interact with the web application at their discretion, without being guided or coerced into sharing Personally Identifiable Information (PPI). The AI maintains transparency through clear disclaimers outlining its limitations, which are included at the bottom of each tab. Additionally, we prioritize user privacy by implementing robust data handling practices—Homie does not retain any information, and no PPI is collected or shared by the user.
+   Homie adheres to these ethical AI principles by ensuring fairness in decision-making processes, allowing users to interact with the web application at their discretion, without being guided or coerced into sharing Personally Identifiable Information (PPI). The AI 
+   tains transparency through clear disclaimers outlining its limitations, which are included at the bottom of each tab. Additionally, we prioritize user privacy by implementing robust data handling practices—Homie does not retain any information, and no PPI is collected or shared by the user.
 
    To ensure data was handled ethically with respect to user privacy and consent, users are required to expressly state their consent where applicable. They are fully informed of any limitations through the disclaimers provided. Furthermore, if continuing with the web application, we would maintain accountability by regularly reviewing and auditing our AI processes to ensure they align with these ethical standards.
 
