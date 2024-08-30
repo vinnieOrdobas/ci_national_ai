@@ -70,6 +70,7 @@
 .chat-bubble.bot {
     background-color: #e9ecef;
     color: #212529;
+    white-space: pre-wrap;
 }
 .chat-bubble.user {
     background-color: #007bff;
