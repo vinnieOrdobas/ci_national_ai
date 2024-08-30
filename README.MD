@@ -166,7 +166,7 @@ To visualize our ideas, we created detailed wireframes that outline the structur
 We engaged in discussions to finalize the architecture of the project. This included decisions on how to compile and integrate all components, with a particular focus on the integration of AI. Below is the architectural design we developed to serve as the foundation for the project:
 
 - **System Architecture Diagram:**
-  ![System Architecture](./assets/system_architecture.png)
+  ![System Architecture](./assets/system_architecture.drawio.png)
 
 ### **Planning & Organization**
 Following extensive planning meetings, Deirdre was elected as the Scrum Master. She was instrumental in organizing our efforts, including setting up a detailed Kanban board that allowed us to manage tasks effectively and stay on schedule.
