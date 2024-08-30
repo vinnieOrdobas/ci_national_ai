@@ -9,6 +9,10 @@
     .title-page .title-text {
         text-align: center;
         width: 100%;
+        margin-left: 0 !important;
+        color: white;
+        text-shadow: 1px 1px #000000;
+
     }
 
     section#about, section#faq, section#disclaimer, section#data-protection {
