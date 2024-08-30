@@ -1,8 +1,3 @@
-python3 -m venv <env_name>
-source <env_name>/bin/activate
-
-git clone git@github.com:vinnieOrdobas/ci_national_ai.git
-
 [CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
 # HomeIE - the AI Assistant that helps you to find a secure home
