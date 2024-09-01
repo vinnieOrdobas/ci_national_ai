@@ -8,6 +8,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="/clientui/static/hackathon.css" rel="stylesheet">
     <link href="/clientui/static/responsive.css" rel="stylesheet">
+    <!-- Mapbox css -->
+    <link rel="stylesheet"
+    href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css" type="text/css">
+    <!-- Mapbox GL JS CDN -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        #map {
+      height: 62vh;
+    }
+    </style>
 </head>
 <body>
 
@@ -177,8 +188,9 @@
                     <form>
                         <div class="row">
                             <div class="col">
+
                                 <label for="location">Location</label>
-                                <input type="text" id="location" class="form-control" placeholder="e.g. Dublin" gui-val="hackathon.user_info.location">
+                                <div id="geocoder"></div>
                             </div>
 
                             <div class="col">
@@ -221,8 +233,9 @@
 
     <div id="chatbot" class="container" gui-show="hackathon.tab=='chat'">
         <div class="row mt-3">
+            <h2>Homie</h2>
             <div class="col">
-                <h2>Homie</h2>
+                
                 <div class="card">
                     <div class="card-body">
                         <div class="chat-window mb-3">
@@ -247,7 +260,12 @@
                         </div>
                     </div>
                 </div>
-                <span id="chatbotend"></span>
+            </div>
+            <div class="col">
+                <div id="map">
+                    <div id="menu" class="map-overlay-container">
+                    </div>
+                  </div>
             </div>
         </div>
 
@@ -444,6 +462,24 @@
     <script src="https://cdn.jsdelivr.net/gh/gomyar/turtlegui@v5.20-b/turtlegui.js" crossorigin="anonymous"></script>
      <script src="/clientui/static/common.js"></script>
     <script src="/clientui/static/hackathon.js"></script>
+    <!-- turf: Needed for geoJSON feature collection in route.js -->
+    <script src='https://unpkg.com/@turf/turf@6.3.0/turf.min.js' defer></script>
+
+    <!-- jQuery -->
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js' defer></script>
+
+    <!-- Mapbox geocoder API used for map search bar -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"
+        defer></script>
+
+    <!-- js files -->
+    <script src="/clientui/static/weather.js" defer></script>
+    <script src="/clientui/static/weather-input.js" defer></script>
+    <script src="/clientui/static/live-alert.js" defer></script>
+
+    <!-- Mapbox JS -->
+    <script src="/clientui/static/route.js" defer></script>
+
 </body>
 </html>
 
