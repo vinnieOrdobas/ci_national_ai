@@ -17,7 +17,6 @@ const geocoder =
     mapboxgl: mapboxgl,
     types: "country,region,place,postcode,locality,neighborhood,address,poi,poi.landmark",
   });
- 
 
 // Add the control to form.
 document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
@@ -35,7 +34,8 @@ let clickRoute = [];
 
 // If location searched update map center
 geocoder.on("result", (e) => {
-  resetRoute();
+  // resetRoute();
+  document.getElementById('location').value = e.result.center;
   map.setCenter(e.result.center);
 });
 
@@ -168,17 +168,17 @@ function setStartMarker(click) {
  * Resets the route first and then sets starting marker if successful else
  * serves users with alert through errorCurrentLocation
  */
-document.getElementById("use-current-location").onclick = function () {
-  resetRoute();
-  document.getElementById("undo").disabled = false;
-  navigator.geolocation.getCurrentPosition(
-    setStartMarker,
-    errorCurrentLocation,
-    {
-      enableHighAccuracy: true,
-    }
-  );
-};
+// document.getElementById("use-current-location").onclick = function () {
+//   resetRoute();
+//   document.getElementById("undo").disabled = false;
+//   navigator.geolocation.getCurrentPosition(
+//     setStartMarker,
+//     errorCurrentLocation,
+//     {
+//       enableHighAccuracy: true,
+//     }
+//   );
+// };
 
 /**
  * function that updates the route-points layer to add a maker to map
@@ -189,196 +189,196 @@ function addMarker(markers) {
   map.getSource("route-points").setData(markers);
 }
 
-/**
- * function thats called when looped route checkbox is clicked
- * if the first and last value is the same in clickRoute and looped route in unchecked remove the looped route
- * else loop the route by adding first maker value to the end of clickRoute
- *
- */
-document.getElementById("looped-route").onclick = function () {
-  if (
-    clickRoute[0] == clickRoute[clickRoute.length - 1] &&
-    document.getElementById("looped-route").checked == false
-  ) {
-    clickRoute.pop();
-  } else {
-    clickRoute.push(clickRoute[0]);
-  }
+// /**
+//  * function thats called when looped route checkbox is clicked
+//  * if the first and last value is the same in clickRoute and looped route in unchecked remove the looped route
+//  * else loop the route by adding first maker value to the end of clickRoute
+//  *
+//  */
+// document.getElementById("looped-route").onclick = function () {
+//   if (
+//     clickRoute[0] == clickRoute[clickRoute.length - 1] &&
+//     document.getElementById("looped-route").checked == false
+//   ) {
+//     clickRoute.pop();
+//   } else {
+//     clickRoute.push(clickRoute[0]);
+//   }
 
-  // Create the route with updated clickRoute
-  createRoute(clickRoute);
-};
+//   // Create the route with updated clickRoute
+//   createRoute(clickRoute);
+// };
 
-/**
- * Function called by clicking Undo button
- *
- * removes a marker and creates route
- * if only starting point remains resets route
- * Updates looped route checkbox accordingly
- *
- */
-document.getElementById("undo").onclick = function () {
-  if (clickRoute.length > 1) {
-    if (clickRoute.length == 2) {
-      clickRoute.pop();
-      map.getSource("route").setData(placeholder);
-      document.getElementById("distance").innerHTML = "0";
-      document.getElementById("looped-route").disabled = true;
-    } else {
-      clickRoute.pop();
-      createRoute(clickRoute);
-    }
-    markers.features.pop();
-    addMarker(markers);
-    document.getElementById("way-points").innerHTML = clickRoute.length;
-  } else {
-    resetRoute();
-  }
+// /**
+//  * Function called by clicking Undo button
+//  *
+//  * removes a marker and creates route
+//  * if only starting point remains resets route
+//  * Updates looped route checkbox accordingly
+//  *
+//  */
+// document.getElementById("undo").onclick = function () {
+//   if (clickRoute.length > 1) {
+//     if (clickRoute.length == 2) {
+//       clickRoute.pop();
+//       map.getSource("route").setData(placeholder);
+//       document.getElementById("distance").innerHTML = "0";
+//       document.getElementById("looped-route").disabled = true;
+//     } else {
+//       clickRoute.pop();
+//       createRoute(clickRoute);
+//     }
+//     markers.features.pop();
+//     addMarker(markers);
+//     document.getElementById("way-points").innerHTML = clickRoute.length;
+//   } else {
+//     resetRoute();
+//   }
 
-  if (
-    clickRoute[0] == clickRoute[clickRoute.length - 1] &&
-    clickRoute.length > 1
-  ) {
-    document.getElementById("looped-route").checked = true;
-  } else {
-    document.getElementById("looped-route").checked = false;
-  }
-};
+//   if (
+//     clickRoute[0] == clickRoute[clickRoute.length - 1] &&
+//     clickRoute.length > 1
+//   ) {
+//     document.getElementById("looped-route").checked = true;
+//   } else {
+//     document.getElementById("looped-route").checked = false;
+//   }
+// };
 
-/**
- * Function that resets the map, it:
- *
- * Unchecks and disables looped route checkbox
- * Empties clickRoute and markers
- * Removes starting point, route and markers from the map
- * updates the distance and way points
- * disables the undo button
- *
- */
-function resetRoute() {
-  document.getElementById("looped-route").checked = false;
-  document.getElementById("looped-route").disabled = true;
+// /**
+//  * Function that resets the map, it:
+//  *
+//  * Unchecks and disables looped route checkbox
+//  * Empties clickRoute and markers
+//  * Removes starting point, route and markers from the map
+//  * updates the distance and way points
+//  * disables the undo button
+//  *
+//  */
+// function resetRoute() {
+//   document.getElementById("looped-route").checked = false;
+//   document.getElementById("looped-route").disabled = true;
 
-  clickRoute = [];
-  markers = turf.featureCollection([]);
+//   clickRoute = [];
+//   markers = turf.featureCollection([]);
 
-  map.getSource("starting-point").setData(placeholder);
-  map.getSource("route").setData(markers);
-  addMarker(markers);
+//   map.getSource("starting-point").setData(placeholder);
+//   map.getSource("route").setData(markers);
+//   addMarker(markers);
 
-  document.getElementById("distance").innerHTML = "0";
-  document.getElementById("way-points").innerHTML = "0";
-  document.getElementById("undo").disabled = true;
-}
+//   document.getElementById("distance").innerHTML = "0";
+//   document.getElementById("way-points").innerHTML = "0";
+//   document.getElementById("undo").disabled = true;
+// }
 
-/**
- * Function called when Reset Route button is clicked
- */
-document.getElementById("reset-route").onclick = function () {
-  resetRoute();
-};
+// /**
+//  * Function called when Reset Route button is clicked
+//  */
+// document.getElementById("reset-route").onclick = function () {
+//   resetRoute();
+// };
 
-/**
- * function that creates a route with an array of lat, long values by making a request to the mapbox directions api
- * clickRoute = [[long1, lat1], [long2, lat2], ... [longn, latn]]
- * where n is up to 24
- * and latn and longn are floats with up 6 decimal places (e.g. [-7.266155, 53.750145])
- *
- * @param {Array} clickRoute an array containing arrays with two entries latitude and longitude
- */
-async function createRoute(clickRoute) {
-  // create url to make request with route and API key
-  let url =
-    "https://api.mapbox.com/directions/v5/mapbox/walking/" +
-    clickRoute.join(";") +
-    "?geometries=geojson&access_token=" +
-    mapboxgl.accessToken;
+// /**
+//  * function that creates a route with an array of lat, long values by making a request to the mapbox directions api
+//  * clickRoute = [[long1, lat1], [long2, lat2], ... [longn, latn]]
+//  * where n is up to 24
+//  * and latn and longn are floats with up 6 decimal places (e.g. [-7.266155, 53.750145])
+//  *
+//  * @param {Array} clickRoute an array containing arrays with two entries latitude and longitude
+//  */
+// async function createRoute(clickRoute) {
+//   // create url to make request with route and API key
+//   let url =
+//     "https://api.mapbox.com/directions/v5/mapbox/walking/" +
+//     clickRoute.join(";") +
+//     "?geometries=geojson&access_token=" +
+//     mapboxgl.accessToken;
 
-  // Call a GET request to Mapbox directions API and receive data back
-  // get the route coordinates and create a GeoJSON feature called routeGeoJSON to hold the route
-  // get distance of route from the data
-  // display route on the map and distance to html
-  $.ajax({
-    method: "GET",
-    url: url,
-  })
-    .done(function (data) {
-      let route = data.routes[0].geometry.coordinates;
-      let routeGeoJSON = {
-        type: "Feature",
-        properties: {},
-        geometry: {
-          type: "LineString",
-          coordinates: route,
-        },
-      };
-      map.getSource("route").setData(routeGeoJSON);
+//   // Call a GET request to Mapbox directions API and receive data back
+//   // get the route coordinates and create a GeoJSON feature called routeGeoJSON to hold the route
+//   // get distance of route from the data
+//   // display route on the map and distance to html
+//   $.ajax({
+//     method: "GET",
+//     url: url,
+//   })
+//     .done(function (data) {
+//       let route = data.routes[0].geometry.coordinates;
+//       let routeGeoJSON = {
+//         type: "Feature",
+//         properties: {},
+//         geometry: {
+//           type: "LineString",
+//           coordinates: route,
+//         },
+//       };
+//       map.getSource("route").setData(routeGeoJSON);
 
-      let distance = data.routes[0].distance / 1000;
-      document.getElementById("distance").innerHTML =
-        distance.toFixed(2) + "km";
-    })
-    .fail(function () {
-      // throw error if request fails
-      alert(
-        "Request for route information failed please contact creator of site",
-        "danger",
-        "map-alerts"
-      );
-    });
-}
+//       let distance = data.routes[0].distance / 1000;
+//       document.getElementById("distance").innerHTML =
+//         distance.toFixed(2) + "km";
+//     })
+//     .fail(function () {
+//       // throw error if request fails
+//       alert(
+//         "Request for route information failed please contact creator of site",
+//         "danger",
+//         "map-alerts"
+//       );
+//     });
+// }
 
-// --------------------- Entry Point ---------------------
+// // --------------------- Entry Point ---------------------
 
-// When map is clicked collect lat and lng and update map accordingly
-/**
- * Function that is called when the map is clicked.
- *
- *
- * @param {click Interaction} e click Interaction fired when a pointing device is pressed and released at the same point on the map
- *                              link to example: https://docs.mapbox.com/mapbox-gl-js/api/map/#map.event:click
- */
-map.on("click", function (e) {
-  // enable undo button on map when first marker is set
-  document.getElementById("undo").disabled = false;
+// // When map is clicked collect lat and lng and update map accordingly
+// /**
+//  * Function that is called when the map is clicked.
+//  *
+//  *
+//  * @param {click Interaction} e click Interaction fired when a pointing device is pressed and released at the same point on the map
+//  *                              link to example: https://docs.mapbox.com/mapbox-gl-js/api/map/#map.event:click
+//  */
+// map.on("click", function (e) {
+//   // enable undo button on map when first marker is set
+//   document.getElementById("undo").disabled = false;
 
-  // Collect lat and long values from click and set as an array
-  let coords = e.lngLat;
-  let click = [
-    parseFloat(coords.lng.toFixed(6)),
-    parseFloat(coords.lat.toFixed(6)),
-  ];
+//   // Collect lat and long values from click and set as an array
+//   let coords = e.lngLat;
+//   let click = [
+//     parseFloat(coords.lng.toFixed(6)),
+//     parseFloat(coords.lat.toFixed(6)),
+//   ];
 
-  if (clickRoute[0] == clickRoute[clickRoute.length - 1]) {
-    document.getElementById("looped-route").checked = false;
-  }
+//   if (clickRoute[0] == clickRoute[clickRoute.length - 1]) {
+//     document.getElementById("looped-route").checked = false;
+//   }
 
-  // if there are two markers in route enable the looped route check box
-  if (clickRoute.length > 0) {
-    document.getElementById("looped-route").disabled = false;
-  }
+//   // if there are two markers in route enable the looped route check box
+//   if (clickRoute.length > 0) {
+//     document.getElementById("looped-route").disabled = false;
+//   }
 
-  // if the limit of 24 clicks hasn't been met
-  if (clickRoute.length < 24) {
-    // Add click to route
-    updateRoute(click);
+//   // if the limit of 24 clicks hasn't been met
+//   if (clickRoute.length < 24) {
+//     // Add click to route
+//     updateRoute(click);
 
-    // set the click as a geoJSON feature to add to markers
-    let pt = turf.point([click[0], click[1]], {
-      orderTime: Date.now(),
-      key: Math.random(),
-    });
+//     // set the click as a geoJSON feature to add to markers
+//     let pt = turf.point([click[0], click[1]], {
+//       orderTime: Date.now(),
+//       key: Math.random(),
+//     });
 
-    // if it's the first click add layer to first click else add marker and create route
-    if (clickRoute.length == 1) {
-      setStartMarker(click);
-    } else {
-      markers.features.push(pt);
-      addMarker(markers);
-      createRoute(clickRoute);
-    }
-  } else {
-    // throw error saying reached limit of clicks
-    alert("Reached limit of way points", "warning", "map-alerts");
-  }
-}); // map on click
+//     // if it's the first click add layer to first click else add marker and create route
+//     if (clickRoute.length == 1) {
+//       setStartMarker(click);
+//     } else {
+//       markers.features.push(pt);
+//       addMarker(markers);
+//       createRoute(clickRoute);
+//     }
+//   } else {
+//     // throw error saying reached limit of clicks
+//     alert("Reached limit of way points", "warning", "map-alerts");
+//   }
+// }); // map on click
