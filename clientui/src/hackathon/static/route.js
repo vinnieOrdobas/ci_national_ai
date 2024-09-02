@@ -7,7 +7,7 @@ const map = new mapboxgl.Map({
   container: "map",
   style: "mapbox://styles/mapbox/streets-v11",
   center: [-7.9333, 53.4000],
-  zoom: 12,
+  zoom: 8,
 }); // map variable
 
 // Search field for choosing a location for the map to go to (i.e. geocoder)
