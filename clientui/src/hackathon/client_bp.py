@@ -55,7 +55,7 @@ def send_prompt():
     data = request.json
     print("Got %s" % (data,))
 
-    model = GenerativeModel('projects/936163987243/locations/europe-west2/endpoints/2189985269971681280')
+    model = GenerativeModel(f"projects/{project_id}/locations/{location}/endpoints/{endpoint_id}")
 
     initial_prompt = initial_prompt_template.format(
         location=data['user_info']['location'],
