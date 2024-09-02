@@ -35,7 +35,7 @@ let clickRoute = [];
 // If location searched update map center
 geocoder.on("result", (e) => {
   // resetRoute();
-  document.getElementById('location').value = e.result.center;
+  hackathon.user_info.location = e.result.place_name;
   map.setCenter(e.result.center);
 });
 

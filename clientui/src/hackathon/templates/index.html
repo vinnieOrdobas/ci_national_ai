@@ -18,6 +18,10 @@
         #map {
       height: 62vh;
     }
+
+    #location {
+        display: none;
+    }
     </style>
 </head>
 <body>
@@ -191,6 +195,7 @@
 
                                 <label for="location">Location</label>
                                 <div id="geocoder"></div>
+                                <input type="text" id="location" class="form-control" placeholder="e.g. Dublin" gui-val="hackathon.user_info.location">
                             </div>
 
                             <div class="col">
