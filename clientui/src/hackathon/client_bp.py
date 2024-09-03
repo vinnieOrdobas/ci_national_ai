@@ -73,6 +73,6 @@ def send_prompt():
     if data['prompt']:
         prompt += [data['prompt']]
 
-    response = model.generate_content(prompt)
+    response = model.generate_content(prompt, generation_config=data['config'])
 
     return jsonify({"reply": markdown.markdown(response.text)})

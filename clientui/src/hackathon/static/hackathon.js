@@ -30,6 +30,7 @@ class HackathonUI {
             instructions: false,
             disclaimer: false,
         };
+        this.config = {};
         this.user_info = {
             location: null,
             income: null,
@@ -109,6 +110,7 @@ class HackathonUI {
                     "prompt": this.current_prompt,
                     "history": this.history,
                     "user_info": this.user_info,
+                    "config": this.config,
                 })
             });
             var data = await response.json();
@@ -141,5 +143,10 @@ var hackathon = new HackathonUI();
 
 document.addEventListener("DOMContentLoaded", function(){
     console.log('loaded');
+    var urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('temperature') !== null) { hackathon.config.temperature = parseFloat(urlParams.get('temperature')); }
+    if (urlParams.get('top_k') !== null) { hackathon.config.top_k = parseFloat(urlParams.get('top_k')); }
+    if (urlParams.get('top_p') !== null) { hackathon.config.top_p = parseFloat(urlParams.get('top_p')); }
+
     turtlegui.reload();    
 });
