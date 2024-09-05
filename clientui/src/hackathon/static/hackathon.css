@@ -79,6 +79,34 @@
     color: white;
 }
 
+#map-button:hover {
+    background-color: #f8f9fa; /* Darker green on hover */
+}
+
+#map {
+    height: 62vh;
+    
+}
+
+#location {
+    display: none;
+}
+
+#map-button {
+    float: right;
+    font-size: 20px;
+    /* Adjust the size of the < symbol */
+    background-color: #afb7e3;
+    /* Green background */
+    border: none;
+    /* Remove border */
+    border-radius: 5px;
+    /* Rounded corners */
+    cursor: pointer;
+    /* Pointer cursor on hover */
+
+}
+
 /* Typing Indicator Animation */
 .typing-indicator {
 	display: flex;
