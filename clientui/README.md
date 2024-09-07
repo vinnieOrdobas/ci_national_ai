@@ -51,12 +51,15 @@ Note: Instructions on installing gcloud are here: https://cloud.google.com/sdk/d
 
    cd ci_national_ai
 
-2. Deploy the application to Google App Engine:
+2. Add Env Vars to env_variables.yaml file.
+   Alter values as appropriate for PROJECT_ID, LOCATION, ENDPOINT_ID, MAPBOX_TOKEN
+
+3. Deploy the application to Google App Engine:
 
    cd src/
    gcloud app deploy
 
-3. Access the deployed application at https://<your-project-id>.appspot.com.
+4. Access the deployed application at https://<your-project-id>.appspot.com.
 
 ### Google App Engine Configuration
 
